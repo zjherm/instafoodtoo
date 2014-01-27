@@ -6,7 +6,7 @@
   "dependencies": {
   	"socket.io": "*",
   	"connect": "*",
-    "jquery" : "*",
+    "jquery" : "2.1.0",
     "instagram-node-lib" : "*"
   	},
   "scripts": {
