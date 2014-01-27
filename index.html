@@ -4,12 +4,12 @@
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script>
-	// var socket = io.connect('http://serene-basin-7449.herokuapp.com');
-	// socket.on('news', function (data) {
-	// 	console.log(data);
-	// 		socket.emit('my other event', { my: 'data' });
-	// 	});
-	//
+	var socket = io.connect('http://serene-basin-7449.herokuapp.com');
+	socket.on('news', function (data) {
+		console.log(data);
+			socket.emit('my other event', { my: 'data' });
+		});
+	
 
 
 </script>
