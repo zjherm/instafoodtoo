@@ -4,7 +4,7 @@ var app = require('http').createServer(handler)
   , connect = require('connect')
   , $ = require('jquery')
 
-app.listen(80);
+app.listen(3000);
 
 function handler (req, res) {
   fs.readFile(__dirname + '/index.html',
