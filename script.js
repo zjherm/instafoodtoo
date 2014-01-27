@@ -39,7 +39,7 @@ Instagram.tags.info({
     console.log(data);
   }
 });
-
+//
 // Instagram.subscriptions.subscribe({
 //   object: 'tag',
 //   object_id: 'breakfast',
