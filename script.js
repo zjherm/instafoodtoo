@@ -40,17 +40,17 @@ Instagram.tags.info({
   }
 });
 
-Instagram.subscriptions.subscribe({
-  object: 'tag',
-  object_id: 'breakfast',
-  aspect: 'media',
-  callback_url: 'http://serene-basin-7449.herokuapp.com/api',
-  type: 'subscription',
-  id: '#'
-});
+// Instagram.subscriptions.subscribe({
+//   object: 'tag',
+//   object_id: 'breakfast',
+//   aspect: 'media',
+//   callback_url: 'http://serene-basin-7449.herokuapp.com/api',
+//   type: 'subscription',
+//   id: '#'
+// });
 
-app.get('/api', function (req, res) {
-  // first we tell our connected clients that there has been a new picture posted
-  socket.emit('newPicture', req.body); // This sends the new picture to all connected clients.
-  // Do whatever else you want here.
-});
+// app.get('/api', function (req, res) {
+//   // first we tell our connected clients that there has been a new picture posted
+//   socket.emit('newPicture', req.body); // This sends the new picture to all connected clients.
+//   // Do whatever else you want here.
+// });
