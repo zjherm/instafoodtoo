@@ -49,7 +49,7 @@ Instagram.subscriptions.subscribe({
   id: '#'
 });
 
-io.get('/api', function (req, res) {
+app.get('/api', function (req, res) {
   // first we tell our connected clients that there has been a new picture posted
   socket.emit('newPicture', req.body); // This sends the new picture to all connected clients.
   // Do whatever else you want here.
