@@ -31,7 +31,7 @@ Instagram = require('instagram-node-lib');
 
 Instagram.set('client_id', '70393263f72f44cc9a3ef9786a4d389f');
 Instagram.set('client_secret', 'fa2725e2a08a4158bad297f35b5c6bec');
-Instagram.set('callback_url', 'http://boiling-depths-2346.herokuapp.com/api');
+Instagram.set('callback_url', 'http://serene-basin-7449.herokuapp.com/api');
 
 Instagram.tags.info({
   name: 'blue',
@@ -44,7 +44,7 @@ Instagram.subscriptions.subscribe({
   object: 'tag',
   object_id: 'breakfast',
   aspect: 'media',
-  callback_url: 'http://localhost:3000/api',
+  callback_url: 'http://serene-basin-7449.herokuapp.com/api',
   type: 'subscription',
   id: '#'
 });
