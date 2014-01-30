@@ -45,7 +45,10 @@ io.sockets.on('connection', function (socket) {
 
 app.get('/', function (req, res) {
   res.send('Testing');
-  $('body').html('<p>Creating paragraph text</p>')
+  $(document).ready(function () {
+      $('body').html('<p>Creating paragraph text</p>')
+  })
+
 });
 
 app.get('/endpoint', function (req, res) { 
