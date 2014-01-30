@@ -56,6 +56,8 @@ app.get('/endpoint', function (req, res) {
   }
 });
 
+app.use(express.bodyParser());
+
 app.post('/endpoint', function (req, res) {
   console.log(req.body);
 });
