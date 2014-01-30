@@ -1,11 +1,21 @@
-var app = require('http').createServer(handler)
-  , io = require('socket.io').listen(app)
+var io = require('socket.io').listen(app)
   , fs = require('fs')
   , connect = require('connect')
   , $ = require('jquery')
+//  , ngrok = require('ngrok')
+  , express = require('express')
+  , app = express()
   , port = process.env.PORT || 5000;
 
+//ngrok.connect(5000, function (err, url) {
+  
+//})
+
 app.listen(port);
+
+
+
+
 
 function handler (req, res) {
   fs.readFile(__dirname + '/index.html',
@@ -29,6 +39,14 @@ io.sockets.on('connection', function (socket) {
     console.log(data);
   });
 
+});
+
+app.get('/endpoint', function (req, res) { 
+  // For convention's sake, we only respond to this if it's a properly formatted request from Instagram
+  if (req.query['hub.challenge']) {
+    // First we check if hub.challenge exists in the query, then we do something
+    res.send(req.query['hub.challenge']);
+  }
 });
 
 Instagram = require('instagram-node-lib');

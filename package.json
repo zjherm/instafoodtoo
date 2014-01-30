@@ -7,7 +7,9 @@
   	"socket.io": "*",
   	"connect": "*",
     "jquery" : "2.1.0",
-    "instagram-node-lib" : "*"
+    "instagram-node-lib" : "*",
+    "express" : "*",
+    "redis" : "*"
   	},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
