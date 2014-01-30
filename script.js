@@ -43,11 +43,10 @@ io.sockets.on('connection', function (socket) {
 
 // Defining Routes
 
+app.use(express.static(process.cwd() + '/public'));
+
 app.get('/', function (req, res) {
   res.send('Testing');
-  $(document).ready(function () {
-      $('body').html('<p>Creating paragraph text</p>')
-  })
 
 });
 
