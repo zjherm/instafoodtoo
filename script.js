@@ -45,7 +45,7 @@ io.sockets.on('connection', function (socket) {
 
 app.get('/', function (req, res) {
   res.send('Testing');
-  $(body).html('<p>Creating paragraph text</p>')
+  $('body').html('<p>Creating paragraph text</p>')
 });
 
 app.get('/endpoint', function (req, res) { 
@@ -60,7 +60,7 @@ Instagram = require('instagram-node-lib');
 
 Instagram.set('client_id', '70393263f72f44cc9a3ef9786a4d389f');
 Instagram.set('client_secret', 'fa2725e2a08a4158bad297f35b5c6bec');
-Instagram.set('callback_url', 'http://serene-basin-7449.herokuapp.com/api');
+Instagram.set('callback_url', 'http://instafood.herokuapp.com/endpoint');
 
 Instagram.tags.info({
   name: 'blue',
