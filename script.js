@@ -54,6 +54,7 @@ app.get('/endpoint', function (req, res) {
     // First we check if hub.challenge exists in the query, then we do something
     res.send(req.query['hub.challenge']);
   }
+  console.log(req.body);
 });
 
 Instagram = require('instagram-node-lib');
