@@ -43,7 +43,7 @@ io.sockets.on('connection', function (socket) {
 
 // Defining Routes
 
-app.use('/', express.static(__dirname + '/public'));
+app.get('/', express.static(__dirname + '/public'));
 
 app.get('/endpoint', function (req, res) { 
   // For convention's sake, we only respond to this if it's a properly formatted request from Instagram
