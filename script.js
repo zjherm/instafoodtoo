@@ -43,10 +43,6 @@ io.sockets.on('connection', function (socket) {
 
 // Defining Routes
 
-app.get('/', function(req, res){
-  res.send(req.online.length + ' users online');
-});
-
 app.use('/', express.static(__dirname + '/public'));
 
 app.get('/endpoint', function (req, res) { 
