@@ -54,6 +54,9 @@ app.get('/endpoint', function (req, res) {
     // First we check if hub.challenge exists in the query, then we do something
     res.send(req.query['hub.challenge']);
   }
+});
+
+app.post('/endpoint', function (req, res) {
   console.log(req.body);
 });
 
