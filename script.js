@@ -2,29 +2,11 @@
     , fs = require('fs')
     , connect = require('connect')
     , $ = require('jquery')
-  //  , ngrok = require('ngrok')
     , express = require('express')
     , app = express()
     , port = process.env.PORT || 5000;
 
-  //ngrok.connect(5000, function (err, url) {
-    
-  //})
-
   app.listen(port);
-
-  // function handler (req, res) {
-  //   fs.readFile(__dirname + '/index.html',
-  //   function (err, data) {
-  //     if (err) {
-  //       res.writeHead(500);
-  //       return res.end('Error loading index.html');
-  //     }
-
-  //     res.writeHead(200);
-  //     res.end(data);
-  //   });
-  // }
 
   io.sockets.on('connection', function (socket) {
     socket.emit('news', { hello: 'world' });
@@ -40,6 +22,13 @@
   // Defining Routes
 
   app.use(express.static(process.cwd() + '/public'));
+
+  app.configure(function(){
+    app.use('/media', express.static(__dirname + '/media'));
+    app.use(express.static(__dirname + '/public'));
+  });
+
+  server.listen(3000);
 
   app.get('/', function (req, res) {
     res.send('Testing');
@@ -72,17 +61,20 @@ app.get('/endpoint', function(req, res){
     Instagram.subscriptions.handshake(req, res); 
 });
 
-app.post('/endpoint', function(req, res){    
-      var body = "";
-      req.on('data', function (chunk) {
-        body += chunk;
-      });
-      req.on('end', function () {
-        getPhoto(body);
-        res.writeHead(200);
-        res.end();
-      });
+app.post('/endpoint', function(req, res) {
+    var data = req.body;
+
+    data.forEach(function(tag) {
+      var url = 'https://api.instagram.com/v1/tags/' + tag.object_id + '/media/recent?client_id=70393263f72f44cc9a3ef9786a4d389f';
+      sendMessage(url);
+
+    });
+    res.end();
 });
+
+function sendMessage(url) {
+  io.sockets.emit('show', { show: url });
+}
 
 // app.get('/set_sub', function(req, res){
 //   Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'breakfast' });
