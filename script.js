@@ -43,6 +43,8 @@
 
   app.get('/', function (req, res) {
     res.send('Testing');
+    console.log(Instagram.subscriptions.list());
+    console.log('hello');
 
   });
 
@@ -80,11 +82,6 @@ app.get('/endpoint', function(req, res){
 //         res.end();
 //       });
 // });
-
-  app.get('/', function (req, res) {
-    console.log(Instagram.subscriptions.list());
-    console.log('hello');
-  });
 
 app.get('/set_sub', function(req, res){
   Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'breakfast' });
