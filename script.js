@@ -6,8 +6,6 @@
     , app = express()
     , port = process.env.PORT || 5000;
 
-  app.listen(port);
-
 // SETTING UP EJS
 
 // Register ejs as .html. If we did
@@ -84,6 +82,8 @@ app.post('/endpoint', function(req, res) {
 function sendMessage(url) {
   io.sockets.emit('show', { show: url });
 }
+
+  app.listen(port);
 
 // app.get('/set_sub', function(req, res){
 //   Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'breakfast' });
