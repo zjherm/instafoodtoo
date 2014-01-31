@@ -69,30 +69,28 @@ Instagram.set('callback_url', 'http://instafood.herokuapp.com/endpoint');
 app.get('/endpoint', function(req, res){
     Instagram.subscriptions.handshake(req, res); 
 });
-app.post('/endpoint', function(req, res){    
-      var body = "";
-      req.on('data', function (chunk) {
-        body += chunk;
-      });
-      req.on('end', function () {
-        getPhoto(body);
-        res.writeHead(200);
-        res.end();
-      });
-});
+// app.post('/endpoint', function(req, res){    
+//       var body = "";
+//       req.on('data', function (chunk) {
+//         body += chunk;
+//       });
+//       req.on('end', function () {
+//         getPhoto(body);
+//         res.writeHead(200);
+//         res.end();
+//       });
+// });
 
-app.get('/set_sub', function(req, res){
-  Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'breakfast' });
-  Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'food' });
-  Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'lunch' });
-  Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'dinner' });
-  res.writeHead(200);
-  res.end();
-});
+  app.get('/', function (req, res) {
+    console.log(Instagram.subscriptions.list());
 
+  });
 
-// app.get('/api', function (req, res) {
-//   // first we tell our connected clients that there has been a new picture posted
-//   socket.emit('newPicture', req.body); // This sends the new picture to all connected clients.
-//   // Do whatever else you want here.
+// app.get('/set_sub', function(req, res){
+//   Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'breakfast' });
+//   Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'food' });
+//   Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'lunch' });
+//   Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'dinner' });
+//   res.writeHead(200);
+//   res.end();
 // });
