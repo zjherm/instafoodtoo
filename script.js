@@ -21,8 +21,6 @@
 
   // Defining Routes
 
-  app.use(express.static(process.cwd() + '/public'));
-
   app.configure(function(){
     app.use('/media', express.static(__dirname + '/media'));
     app.use(express.static(__dirname + '/public'));
