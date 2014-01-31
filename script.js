@@ -26,12 +26,12 @@
     app.use(express.static(__dirname + '/public'));
   });
 
-  app.get('/', function (req, res) {
-    res.send('Testing');
-    console.log(Instagram.subscriptions.list());
-    console.log('hello');
+  // app.get('/', function (req, res) {
+  //   res.send('Testing');
+  //   console.log(Instagram.subscriptions.list());
+  //   console.log('hello');
 
-  });
+  // });
 
   // app.get('/endpoint', function (req, res) { 
   //   // For convention's sake, we only respond to this if it's a properly formatted request from Instagram
