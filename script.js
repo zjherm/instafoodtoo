@@ -28,8 +28,6 @@
     app.use(express.static(__dirname + '/public'));
   });
 
-  server.listen(3000);
-
   app.get('/', function (req, res) {
     res.send('Testing');
     console.log(Instagram.subscriptions.list());
