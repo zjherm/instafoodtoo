@@ -83,14 +83,14 @@ app.get('/endpoint', function(req, res){
 
   app.get('/', function (req, res) {
     console.log(Instagram.subscriptions.list());
-
+    console.log('hello');
   });
 
-// app.get('/set_sub', function(req, res){
-//   Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'breakfast' });
-//   Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'food' });
-//   Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'lunch' });
-//   Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'dinner' });
-//   res.writeHead(200);
-//   res.end();
-// });
+app.get('/set_sub', function(req, res){
+  Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'breakfast' });
+  Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'food' });
+  Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'lunch' });
+  Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'dinner' });
+  res.writeHead(200);
+  res.end();
+});
