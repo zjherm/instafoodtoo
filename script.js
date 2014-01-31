@@ -12,7 +12,7 @@
   // Defining Routes
 
 app.get('/', function(req, res) {
-  res.render('index', { title: 'The index page!' })
+  res.render('index', { content: 'The index page!' })
 });
 
   // app.get('/', function (req, res) {
