@@ -65,39 +65,39 @@ app.get('/', function(req, res) {
     content: 'The index page!',
     secondary: "Another paragraph"
   })
-  Instagram.subscriptions.subscribe({
-    object: 'tag',
-    object_id: 'breakfast',
-    aspect: 'media',
-    callback_url: 'http://instafood.herokuapp.com/endpoint',
-    type: 'subscription',
-    id: '#'
-  });
-  Instagram.subscriptions.subscribe({
-    object: 'tag',
-    object_id: 'food',
-    aspect: 'media',
-    callback_url: 'http://instafood.herokuapp.com/endpoint',
-    type: 'subscription',
-    id: '#'
-  });
-  Instagram.subscriptions.subscribe({
-    object: 'tag',
-    object_id: 'lunch',
-    aspect: 'media',
-    callback_url: 'http://instafood.herokuapp.com/endpoint',
-    type: 'subscription',
-    id: '#'
-  });
-  Instagram.subscriptions.subscribe({
-    object: 'tag',
-    object_id: 'dinner',
-    aspect: 'media',
-    callback_url: 'http://instafood.herokuapp.com/endpoint',
-    type: 'subscription',
-    id: '#'
-  });
-  //console.log(Instagram.subscriptions.list());
+  // Instagram.subscriptions.subscribe({
+  //   object: 'tag',
+  //   object_id: 'breakfast',
+  //   aspect: 'media',
+  //   callback_url: 'http://instafood.herokuapp.com/endpoint',
+  //   type: 'subscription',
+  //   id: '#'
+  // });
+  // Instagram.subscriptions.subscribe({
+  //   object: 'tag',
+  //   object_id: 'food',
+  //   aspect: 'media',
+  //   callback_url: 'http://instafood.herokuapp.com/endpoint',
+  //   type: 'subscription',
+  //   id: '#'
+  // });
+  // Instagram.subscriptions.subscribe({
+  //   object: 'tag',
+  //   object_id: 'lunch',
+  //   aspect: 'media',
+  //   callback_url: 'http://instafood.herokuapp.com/endpoint',
+  //   type: 'subscription',
+  //   id: '#'
+  // });
+  // Instagram.subscriptions.subscribe({
+  //   object: 'tag',
+  //   object_id: 'dinner',
+  //   aspect: 'media',
+  //   callback_url: 'http://instafood.herokuapp.com/endpoint',
+  //   type: 'subscription',
+  //   id: '#'
+  // });
+  console.log(Instagram.subscriptions.list());
 
 });
 
