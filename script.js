@@ -44,9 +44,7 @@ Instagram.set('client_id', '70393263f72f44cc9a3ef9786a4d389f');
 Instagram.set('client_secret', 'fa2725e2a08a4158bad297f35b5c6bec');
 Instagram.set('callback_url', 'http://instafood.herokuapp.com/endpoint');
 
-app.get('/endpoint', function (req, res){
-    Instagram.subscriptions.handshake(req, res); 
-});
+
 
 // app.post('/endpoint', function(req, res) {
 //     var data = req.body;
@@ -73,6 +71,10 @@ app.get('/', function(req, res) {
 app.post('/endpoint', function (req, res) {
     console.log(req.body); 
     console.log(Instagram.subscriptions.list());
+});
+
+app.get('/endpoint', function (req, res){
+    Instagram.subscriptions.handshake(req, res); 
 });
 
 app.listen(port);
