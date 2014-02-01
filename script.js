@@ -28,6 +28,7 @@ app.set('views', __dirname + '/views');
 // ex: res.render('users.html').
 app.set('view engine', 'html');
 
+app.listen(port);
 
   // app.get('/endpoint', function (req, res) { 
   //   // For convention's sake, we only respond to this if it's a properly formatted request from Instagram
@@ -80,7 +81,7 @@ app.get('/endpoint', function (req, res){
     console.log("on app.get")
 });
 
-app.listen(port);
+
 
 // SET UP SUBSCRIPTIONS THEN COMMENT OUT
 // app.get('/set_sub', function(req, res){
