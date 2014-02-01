@@ -37,12 +37,14 @@ app.get('/', function(req, res) {
   })
 });
 
-  // app.get('/', function (req, res) {
-  //   res.send('Testing');
-  //   console.log(Instagram.subscriptions.list());
-  //   console.log('hello');
-
-  // });
+app.configure(function(){
+    app.use(express.bodyParser());
+    app.use(express.methodOverride());
+    app.use(app.router);
+    app.use(express.static(pub));
+    app.use(express.static(view));
+    app.use(express.errorHandler());
+});
 
   // app.get('/endpoint', function (req, res) { 
   //   // For convention's sake, we only respond to this if it's a properly formatted request from Instagram
@@ -52,11 +54,6 @@ app.get('/', function(req, res) {
   //   }
   // });
 
-  // app.use(express.bodyParser());
-
-  // app.post('/endpoint', function (req, res) {
-  //   console.log(req.body);
-  // });
 
 Instagram = require('instagram-node-lib');
 
@@ -68,23 +65,33 @@ app.get('/endpoint', function(req, res){
     Instagram.subscriptions.handshake(req, res); 
 });
 
-app.post('/endpoint', function(req, res) {
-    var data = req.body;
+// app.post('/endpoint', function(req, res) {
+//     var data = req.body;
 
-    data.forEach(function(tag) {
-      var url = 'https://api.instagram.com/v1/tags/' + tag.object_id + '/media/recent?client_id=70393263f72f44cc9a3ef9786a4d389f';
-      sendMessage(url);
+//     data.forEach(function(tag) {
+//       var url = 'https://api.instagram.com/v1/tags/' + tag.object_id + '/media/recent?client_id=70393263f72f44cc9a3ef9786a4d389f';
+//       sendMessage(url);
 
-    });
-    res.end();
+//     });
+//     res.end();
+// });
+
+app.post('/endpoint', function (req, res) {
+    console.log(req.body); 
 });
 
-function sendMessage(url) {
-  io.sockets.emit('show', { show: url });
-}
+io.sockets.on('connection', function (socket) {
+  Instagram.tags.recent({ 
+      name: 'breakfast',
+      complete: function(data) {
+        socket.emit('firstShow', { firstShow: data });
+      }
+  });
+});
 
-  app.listen(port);
+app.listen(port);
 
+// SET UP SUBSCRIPTIONS THEN COMMENT OUT
 // app.get('/set_sub', function(req, res){
 //   Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'breakfast' });
 //   Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'food' });
