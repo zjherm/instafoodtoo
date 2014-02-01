@@ -56,11 +56,9 @@ app.post('/endpoint', function (req, res) {
     console.log("on app.post this is good!!!!!!!!!!!!!!")
 });
 
-// app.get('/endpoint', function (req, res){
-//     Instagram.subscriptions.handshake(req, res); 
-//     console.log(Instagram.subscriptions.list());
-//     console.log("on app.get")
-// });
+app.get('/endpoint', function (req, res){
+    Instagram.subscriptions.handshake(req, res); 
+});
 
 app.get('/', function(req, res) {
   res.render('index', { 
