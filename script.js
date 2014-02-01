@@ -58,9 +58,9 @@ Instagram.set('callback_url', 'http://instafood.herokuapp.com/endpoint');
 //     res.end();
 // });
 
-app.configure(function(){
-    app.use(express.static(__dirname + '/public'));
-});
+// app.configure(function(){
+//     app.use(express.static(__dirname + '/public'));
+// });
 
 app.post('/endpoint', function (req, res) {
     console.log(req.body); 
