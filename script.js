@@ -28,6 +28,8 @@ app.set('views', __dirname + '/views');
 // ex: res.render('users.html').
 app.set('view engine', 'html');
 
+app.use(express.bodyParser());
+
 app.listen(port);
 
   // app.get('/endpoint', function (req, res) { 
