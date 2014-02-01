@@ -68,7 +68,7 @@ app.get('/', function(req, res) {
   })
 });
 
-app.post('/endpoint', function (req, res) {
+app.get('/endpoint', function (req, res) {
     console.log(req.body); 
     console.log(Instagram.subscriptions.list());
 });
