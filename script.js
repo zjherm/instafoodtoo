@@ -37,15 +37,6 @@ app.get('/', function(req, res) {
   })
 });
 
-app.configure(function(){
-    app.use(express.bodyParser());
-    app.use(express.methodOverride());
-    app.use(app.router);
-    app.use(express.static(pub));
-    app.use(express.static(view));
-    app.use(express.errorHandler());
-});
-
   // app.get('/endpoint', function (req, res) { 
   //   // For convention's sake, we only respond to this if it's a properly formatted request from Instagram
   //   if (req.query['hub.challenge']) {
