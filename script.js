@@ -62,13 +62,6 @@ app.configure(function(){
     app.use(express.static(__dirname + '/public'));
 });
 
-app.get('/', function(req, res) {
-  res.render('index', { 
-    content: 'The index page!',
-    secondary: "Another paragraph"
-  })
-});
-
 app.post('/endpoint', function (req, res) {
     console.log(req.body); 
     console.log(Instagram.subscriptions.list());
@@ -80,6 +73,15 @@ app.get('/endpoint', function (req, res){
     console.log(Instagram.subscriptions.list());
     console.log("on app.get")
 });
+
+app.get('/', function(req, res) {
+  res.render('index', { 
+    content: 'The index page!',
+    secondary: "Another paragraph"
+  })
+});
+
+
 
 
 
