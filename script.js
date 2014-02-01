@@ -53,8 +53,7 @@ app.configure(function(){
 
 app.post('/endpoint', function (req, res) {
     console.log(req.body); 
-    console.log(Instagram.subscriptions.list());
-    console.log("on app.post")
+    console.log("on app.post this is good!!!!!!!!!!!!!!")
 });
 
 // app.get('/endpoint', function (req, res){
@@ -68,6 +67,7 @@ app.get('/', function(req, res) {
     content: 'The index page!',
     secondary: "Another paragraph"
   })
+  console.log(Instagram.subscriptions.list());
 });
 
 // SET UP SUBSCRIPTIONS THEN COMMENT OUT
