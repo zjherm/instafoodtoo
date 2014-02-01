@@ -60,7 +60,7 @@ app.get('/endpoint', function (req, res){
 // });
 
 app.configure(function(){
-    app.use(express.static(pub));
+    app.use(express.static(__dirname + '/public'));
 });
 
 app.get('/', function(req, res) {
