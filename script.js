@@ -66,7 +66,11 @@ app.get('/', function(req, res) {
   res.render('index', { 
     content: 'The index page!',
     secondary: "Another paragraph"
-  })
+  });
+    Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'breakfast' });
+  Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'food' });
+  Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'lunch' });
+  Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'dinner' });
   console.log(Instagram.subscriptions.list());
 
 });
