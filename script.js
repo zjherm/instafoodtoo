@@ -55,11 +55,11 @@ app.post('/endpoint', function (req, res) {
     console.log("on app.post")
 });
 
-app.get('/endpoint', function (req, res){
-    Instagram.subscriptions.handshake(req, res); 
-    console.log(Instagram.subscriptions.list());
-    console.log("on app.get")
-});
+// app.get('/endpoint', function (req, res){
+//     Instagram.subscriptions.handshake(req, res); 
+//     console.log(Instagram.subscriptions.list());
+//     console.log("on app.get")
+// });
 
 app.get('/', function(req, res) {
   res.render('index', { 
@@ -69,11 +69,11 @@ app.get('/', function(req, res) {
 });
 
 // SET UP SUBSCRIPTIONS THEN COMMENT OUT
-app.get('/set_sub', function(req, res){
-  Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'breakfast' });
-  Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'food' });
-  Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'lunch' });
-  Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'dinner' });
-  res.writeHead(200);
-  res.end();
-});
+// app.get('/set_sub', function(req, res){
+//   Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'breakfast' });
+//   Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'food' });
+//   Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'lunch' });
+//   Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'dinner' });
+//   res.writeHead(200);
+//   res.end();
+// });
