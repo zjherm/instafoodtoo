@@ -68,13 +68,16 @@ app.get('/', function(req, res) {
   })
 });
 
-app.get('/endpoint', function (req, res) {
+app.post('/endpoint', function (req, res) {
     console.log(req.body); 
     console.log(Instagram.subscriptions.list());
+    console.log("on app.post")
 });
 
 app.get('/endpoint', function (req, res){
     Instagram.subscriptions.handshake(req, res); 
+    console.log(Instagram.subscriptions.list());
+    console.log("on app.get")
 });
 
 app.listen(port);
