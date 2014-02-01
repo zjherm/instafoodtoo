@@ -28,7 +28,13 @@ app.set('views', __dirname + '/views');
 // ex: res.render('users.html').
 app.set('view engine', 'html');
 
-app.use(express.bodyParser());
+app.configure(function(){
+    app.use(express.bodyParser());
+    app.use(express.methodOverride());
+    app.use(app.router);
+    app.use(express.static(__dirname + '/public'));
+    app.use(express.errorHandler());
+});
 
 app.listen(port);
 
@@ -47,10 +53,6 @@ Instagram.set('client_id', '70393263f72f44cc9a3ef9786a4d389f');
 Instagram.set('client_secret', 'fa2725e2a08a4158bad297f35b5c6bec');
 Instagram.set('callback_url', 'http://instafood.herokuapp.com/endpoint');
 
-app.configure(function(){
-    app.use(express.static(__dirname + '/public'));
-});
-
 app.post('/endpoint', function (req, res) {
     console.log(req.body); 
     console.log("on app.post this is good!!!!!!!!!!!!!!")
@@ -65,38 +67,6 @@ app.get('/', function(req, res) {
     content: 'The index page!',
     secondary: "Another paragraph"
   })
-  // Instagram.subscriptions.subscribe({
-  //   object: 'tag',
-  //   object_id: 'breakfast',
-  //   aspect: 'media',
-  //   callback_url: 'http://instafood.herokuapp.com/endpoint',
-  //   type: 'subscription',
-  //   id: '#'
-  // });
-  // Instagram.subscriptions.subscribe({
-  //   object: 'tag',
-  //   object_id: 'food',
-  //   aspect: 'media',
-  //   callback_url: 'http://instafood.herokuapp.com/endpoint',
-  //   type: 'subscription',
-  //   id: '#'
-  // });
-  // Instagram.subscriptions.subscribe({
-  //   object: 'tag',
-  //   object_id: 'lunch',
-  //   aspect: 'media',
-  //   callback_url: 'http://instafood.herokuapp.com/endpoint',
-  //   type: 'subscription',
-  //   id: '#'
-  // });
-  // Instagram.subscriptions.subscribe({
-  //   object: 'tag',
-  //   object_id: 'dinner',
-  //   aspect: 'media',
-  //   callback_url: 'http://instafood.herokuapp.com/endpoint',
-  //   type: 'subscription',
-  //   id: '#'
-  // });
   console.log(Instagram.subscriptions.list());
 
 });
