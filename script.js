@@ -59,6 +59,10 @@ app.get('/endpoint', function (req, res){
 //     res.end();
 // });
 
+app.configure(function(){
+    app.use(express.static(pub));
+});
+
 app.get('/', function(req, res) {
   res.render('index', { 
     content: 'The index page!',
