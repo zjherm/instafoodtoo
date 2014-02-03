@@ -1,11 +1,20 @@
-  var io = require('socket.io').listen(app)
-//    , fs = require('fs')
-    , connect = require('connect')
-    , $ = require('jquery')
-    , express = require('express')
-    , app = express()
-    , https = require("https")
-    , port = process.env.PORT || 5000;
+var util = require('util'),
+  http = require('http'),
+  express = require('express'),
+  ejs = require('ejs'),
+  app = express(),
+  Instagram = require('instagram-node-lib');
+
+//Listen on port 3000
+var port = process.env.PORT || 3000;
+var server = app.listen(port);
+var io = require('socket.io').listen(server);
+
+//This is required to work on Heroku; it defaults to long polling; actual web-sockets not supported
+io.configure(function () { 
+  io.set("transports", ["xhr-polling"]); 
+  io.set("polling duration", 10); 
+});
 
 // SETTING UP EJS
 
@@ -46,9 +55,6 @@ app.listen(port);
   //     res.send(req.query['hub.challenge']);
   //   }
   // });
-
-
-Instagram = require('instagram-node-lib');
 
 Instagram.set('client_id', '70393263f72f44cc9a3ef9786a4d389f');
 Instagram.set('client_secret', 'fa2725e2a08a4158bad297f35b5c6bec');
