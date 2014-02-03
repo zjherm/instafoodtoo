@@ -54,7 +54,7 @@ app.get('/set_sub', function(req, res) {
 });
 function getPhoto(body){
   console.log("=======================BODY========================");
-  console.log(body);
+  console.log(body.object_id);
   console.log("====================END BODY=======================");
 }
 
