@@ -46,8 +46,6 @@ app.configure(function(){
     app.use(express.errorHandler());
 });
 
-app.listen(port);
-
   // app.get('/endpoint', function (req, res) { 
   //   // For convention's sake, we only respond to this if it's a properly formatted request from Instagram
   //   if (req.query['hub.challenge']) {
