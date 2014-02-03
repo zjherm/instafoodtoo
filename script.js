@@ -4,6 +4,7 @@
     , $ = require('jquery')
     , express = require('express')
     , app = express()
+    , https = require("https")
     , port = process.env.PORT || 5000;
 
 // SETTING UP EJS
@@ -68,19 +69,47 @@ app.get('/', function(req, res) {
     secondary: "Another paragraph"
   });
     Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'breakfast' });
-  Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'food' });
-  Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'lunch' });
-  Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'dinner' });
-  console.log(Instagram.subscriptions.list());
+    Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'food' });
+    Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'lunch' });
+    Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'dinner' });
+    console.log(Instagram.subscriptions.list());
 
 });
 
-// SET UP SUBSCRIPTIONS THEN COMMENT OUT
-// app.get('/set_sub', function(req, res){
-  // Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'breakfast' });
-  // Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'food' });
-  // Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'lunch' });
-  // Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'dinner' });
-//   res.writeHead(200);
-//   res.end();
-// });
+// CRISTIAN: THIS IS STUFF I'VE ADDED SINCE OUR LAST EMAIL, JUST TESTING..
+
+
+// POST /callback
+//   Receives POST nofications with the geometries updated
+//   Each notification contains a geography_id, which is
+//   the identifier of the geography that has a new photo.
+//   It's necessary to perform another API call to get the last
+//   photo from that geography
+app.post('/endpoint', function(request, response){
+  // request.body is a JSON already parsed
+  request.body.forEach(function(notificationOjb){
+    // Every notification object contains the id of the geography
+    // that has been updated, and the photo can be obtained from
+    // that geography
+    https.get({
+      host: 'api.instagram.com',
+      path: '/v1/geographies/' + notificationOjb.object_id + '/media/recent?client_id=70393263f72f44cc9a3ef9786a4d389f', function(res){
+      var raw = "";
+
+      res.on('data', function(chunk) {
+        raw += chunk;
+      });
+
+      // When the whole body has arrived, it has to be a valid JSON, with data,
+      // and the first photo of the date must to have a location attribute.
+      // If so, the photo is emitted through the websocket
+      console.log("This is raw: " + raw);
+
+    });
+  });
+
+  response.writeHead(200);
+});
+
+console.log("Listening on port " + port);
+
