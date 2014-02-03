@@ -21,19 +21,11 @@ Instagram.set('client_secret', 'fa2725e2a08a4158bad297f35b5c6bec');
 Instagram.set('callback_url', 'http://instafood.herokuapp.com/endpoint');
 
 
-app.engine('.html', require('ejs').__express);
-// Optional since express defaults to CWD/views
-app.set('views', __dirname + '/views');
+app.use(express.static(__dirname + '/app'));
+app.set('views', __dirname + '/views/');
+app.engine('html', require('ejs').renderFile);
 
-app.set('view engine', 'html');
-
-app.configure(function(){
-    app.use(express.bodyParser());
-    app.use(express.methodOverride());
-    app.use(app.router);
-    app.use(express.static(__dirname + '/public'));
-    app.use(express.errorHandler());
-});
+app.use(express.logger());
 
 app.post('/endpoint', function (req, res) {
      var body = "";
@@ -65,14 +57,10 @@ app.get('/', function(req, res) {
     console.log(Instagram.subscriptions.list());
 
 });
-
-
 function getPhoto(body){
   console.log("=======================BODY========================");
   console.log(body);
   console.log("====================END BODY=======================");
 }
 
-
-console.log("Listening on port " + port);
 
