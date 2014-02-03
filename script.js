@@ -52,9 +52,24 @@ app.get('/set_sub', function(req, res) {
     res.end();
 
 });
-function getPhoto(body){
+function getPhoto(inf){
+  inf = JSON.parse(inf);
+  prt = inf[0]; 
   console.log("=======================BODY========================");
-  console.log(body[0].object_id);
+  Instagram.tags.recent({
+    name: prt.object_id,
+    complete: function(data){
+        if(data[0] == null){
+        }else{
+          var piece = {};
+          piece.img = data[0].images.low_resolution.url;
+          piece.url = data[0].link;
+          console.log(piece.img)
+          //io.sockets.emit('alert', prt.object_id);
+          //io.sockets.emit('photo', piece);
+        }
+    }
+  });
   console.log("====================END BODY=======================");
 }
 
