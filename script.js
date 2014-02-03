@@ -85,30 +85,23 @@ app.get('/', function(req, res) {
 //   the identifier of the geography that has a new photo.
 //   It's necessary to perform another API call to get the last
 //   photo from that geography
-app.post('/endpoint', function(request, response){
+app.post('/endpoint', function(req, res){
   // request.body is a JSON already parsed
-  request.body.forEach(function(notificationOjb){
-    // Every notification object contains the id of the geography
-    // that has been updated, and the photo can be obtained from
-    // that geography
-    https.get({
-      'https://api.instagram.com/v1/geographies/' + notificationOjb.object_id + '/media/recent?client_id=70393263f72f44cc9a3ef9786a4d389f', function(res){
-      var raw = "";
+  var data = req.body;
 
-      res.on('data', function(chunk) {
-        raw += chunk;
-      });
-
-      // When the whole body has arrived, it has to be a valid JSON, with data,
-      // and the first photo of the date must to have a location attribute.
-      // If so, the photo is emitted through the websocket
-      console.log("This is raw: " + raw);
-
-    });
+  data.forEach(function(tag) {
+      var url = 'https://api.instagram.com/v1/tags/' + tag.object_id + '/media/recent?client_id=70393263f72f44cc9a3ef9786a4d389f';
+      sendMessage(url);
+      console.log("this is the url: " + url);
   });
 
-  response.writeHead(200);
+  red.end();
+
 });
+
+function sendMessage(url) {
+  io.sockets.emit('show', { show: url });
+}
 
 console.log("Listening on port " + port);
 
