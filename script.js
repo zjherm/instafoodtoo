@@ -76,32 +76,7 @@ app.get('/', function(req, res) {
 
 });
 
-// CRISTIAN: THIS IS STUFF I'VE ADDED SINCE OUR LAST EMAIL, JUST TESTING..
 
-
-// POST /callback
-//   Receives POST nofications with the geometries updated
-//   Each notification contains a geography_id, which is
-//   the identifier of the geography that has a new photo.
-//   It's necessary to perform another API call to get the last
-//   photo from that geography
-app.post('/endpoint', function(req, res){
-  // request.body is a JSON already parsed
-  var data = req.body;
-
-  data.forEach(function(tag) {
-      var url = 'https://api.instagram.com/v1/tags/' + tag.object_id + '/media/recent?client_id=70393263f72f44cc9a3ef9786a4d389f';
-      sendMessage(url);
-      console.log("this is the url: " + url);
-  });
-
-  red.end();
-
-});
-
-function sendMessage(url) {
-  io.sockets.emit('show', { show: url });
-}
 
 console.log("Listening on port " + port);
 
