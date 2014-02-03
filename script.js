@@ -92,8 +92,7 @@ app.post('/endpoint', function(request, response){
     // that has been updated, and the photo can be obtained from
     // that geography
     https.get({
-      host: 'api.instagram.com',
-      path: '/v1/geographies/' + notificationOjb.object_id + '/media/recent?client_id=70393263f72f44cc9a3ef9786a4d389f', function(res){
+      'https://api.instagram.com/v1/geographies/' + notificationOjb.object_id + '/media/recent?client_id=70393263f72f44cc9a3ef9786a4d389f', function(res){
       var raw = "";
 
       res.on('data', function(chunk) {
