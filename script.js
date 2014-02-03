@@ -45,9 +45,11 @@ app.get('/endpoint', function (req, res){
     Instagram.subscriptions.handshake(req, res); 
 });
 
-app.get('/', function(req, res) {
+app.get('/set_sub', function(req, res) {
     Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'fun' });
     console.log(Instagram.subscriptions.list());
+    res.writeHead(200);
+    res.end();
 
 });
 function getPhoto(body){
