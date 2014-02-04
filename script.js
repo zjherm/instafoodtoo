@@ -16,9 +16,10 @@ io.configure(function () {
   io.set("polling duration", 10); 
 });
 
-Instagram.set('client_id', '70393263f72f44cc9a3ef9786a4d389f');
-Instagram.set('client_secret', 'fa2725e2a08a4158bad297f35b5c6bec');
+Instagram.set('client_id', '98196d9d542248b2aab2261a9b121696');
+Instagram.set('client_secret', 'bb34b287393a489c8d71433137e9439b');
 Instagram.set('callback_url', 'http://instafood.herokuapp.com/endpoint');
+
 
 
 app.use(express.static(__dirname + '/'));
@@ -53,12 +54,13 @@ app.get('/', function(req, res){
       });
   });
 app.get('/set_sub', function(req, res) {
-    Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'fun' });
+    Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'food' });
     console.log(Instagram.subscriptions.list());
     res.writeHead(200);
     res.end();
 
 });
+
 function getPhoto(inf){
   inf = JSON.parse(inf);
   prt = inf[0]; 
