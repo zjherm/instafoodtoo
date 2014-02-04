@@ -22,7 +22,7 @@ Instagram.set('callback_url', 'http://instafood.herokuapp.com/endpoint');
 
 
 app.use(express.static(__dirname + '/app'));
-app.set('views', __dirname + '/views/');
+app.set('views', __dirname + '/views');
 app.engine('html', require('ejs').renderFile);
 
 app.use(express.logger());
@@ -44,7 +44,14 @@ app.post('/endpoint', function (req, res) {
 app.get('/endpoint', function (req, res){
     Instagram.subscriptions.handshake(req, res); 
 });
-
+app.get('/', function(req, res){
+      res.render('index.ejs', {
+      layout:false,
+      locals: { 
+        someVariable: "value"
+         }
+      });
+  });
 app.get('/set_sub', function(req, res) {
     Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'fun' });
     console.log(Instagram.subscriptions.list());
