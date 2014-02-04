@@ -72,8 +72,8 @@ function getPhoto(inf){
           piece.img = data[0].images.low_resolution.url;
           piece.url = data[0].link;
           console.log(piece.img)
-          //io.sockets.emit('alert', prt.object_id);
-          //io.sockets.emit('photo', piece);
+          io.sockets.emit('alert', prt.object_id);
+          io.sockets.emit('photo', piece);
         }
     }
   });
