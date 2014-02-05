@@ -9,7 +9,10 @@
     console.log(image);
     posts.push(data);
     console.log("Here's the posts array " + posts);
-    $('#instagram').html('<li>Heres new data' + data + '</li>');
+    $('#instagram').append(
+    	'<a href="' + data.url + '">' + 
+    	'<img src="' + data.img + '">' + 
+    	'</a>');
   });
 </script>
   </body>
