@@ -5,12 +5,13 @@
   var posts = [];
   socket.on('photo', function (data) {
     $('#instagram').append(
-    	'<a href="' + data.url + '">' + 
+    	'<div class="post-box"><a href="' + data.url + '">' + 
     	'<img src="' + data.img + '">' + 
     	'</a><br>' + 
     	'<b>Location:</b><br/>' + 
     	'Longitude: ' + data.long + '<br>' +
-    	'Latitude: ' + data.lat);
+    	'Latitude: ' + data.lat +
+    	'</div>');
   });
 </script>
   </body>
