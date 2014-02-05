@@ -74,8 +74,10 @@ function getPhoto(inf){
           var piece = {};
           piece.img = data[0].images.low_resolution.url;
           piece.url = data[0].link;
-          console.log(piece.img)
-          io.sockets.emit('alert', prt.object_id);
+          piece.long = data[0].location.longitude;
+          piece.lat = data[0].location.latitude;
+          // console.log(piece.img)
+          // io.sockets.emit('alert', prt.object_id);
           io.sockets.emit('photo', piece);
         }
     }

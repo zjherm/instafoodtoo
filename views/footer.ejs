@@ -7,7 +7,10 @@
     $('#instagram').append(
     	'<a href="' + data.url + '">' + 
     	'<img src="' + data.img + '">' + 
-    	'</a>');
+    	'</a>' + 
+    	'<b>Location:</b><br/>' + 
+    	'Longitude: ' + data.long + '<br>' +
+    	'Latitude: ' + data.lat);
   });
 </script>
   </body>
