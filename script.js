@@ -55,6 +55,7 @@ app.get('/', function(req, res){
   });
 app.get('/set_sub', function(req, res) {
     Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'sherman' });
+    Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'lebron' });
     console.log(Instagram.subscriptions.list());
     res.writeHead(200);
     res.end();

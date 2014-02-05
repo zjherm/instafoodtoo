@@ -1,9 +1,6 @@
 <script src="/socket.io/socket.io.js"></script>
 <script>
   var socket = io.connect();
-  // socket.on('alert', function (data) {
-  //   console.log(data);
-  // });
   socket.on('photo', function (data) {
     console.log(data);
   });
