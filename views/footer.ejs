@@ -4,7 +4,7 @@
   var socket = io.connect();
   var posts = [];
   socket.on('photo', function (data) {
-    console.log("Ojbect has came in " + data);
+    console.log(data);
     posts.push(data);
     console.log("Here's the posts array " + posts);
   });
