@@ -4,10 +4,12 @@
   var socket = io.connect();
   var posts = [];
   socket.on('photo', function (data) {
+  	var image = data.img;
     console.log(data);
+    console.log(image);
     posts.push(data);
     console.log("Here's the posts array " + posts);
-    $('#instagram').html(data);
+    $('#instagram').html('<li>Here's new data' + data + '</li>');
   });
 </script>
   </body>
