@@ -1,8 +1,12 @@
 <script src="/socket.io/socket.io.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>
   var socket = io.connect();
+  var posts = [];
   socket.on('photo', function (data) {
-    console.log(data);
+    console.log("Ojbect has came in " + data);
+    posts.push(data);
+    console.log("Here's the posts array " + posts);
   });
 </script>
   </body>
