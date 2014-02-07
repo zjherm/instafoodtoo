@@ -34,6 +34,7 @@ app.post('/endpoint', function (req, res) {
           console.log('chunk');
           console.log('this is the chunk ' + chunk);
           body += chunk;
+          console.log('this is the body ' + body);
         });
         req.on('end', function () {
           console.log('end');
