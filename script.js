@@ -32,6 +32,7 @@ app.post('/endpoint', function (req, res) {
      var body = "";
         req.on('data', function (chunk) {
           console.log('chunk');
+          console.log('this is the chunk ' + chunk);
           body += chunk;
         });
         req.on('end', function () {
