@@ -1,19 +1,5 @@
 <script src="/socket.io/socket.io.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script>
-  var socket = io.connect();
-  var posts = [];
-  socket.on('photo', function (data) {
-    $('#instagram').append(
-    	'<div class="post-box"><a href="' + data.url + '">' + 
-    	'<img src="' + data.img + '">' + 
-    	'</a><br>' + 
-    	'<b>Location:</b><br/>' + 
-    	'Longitude: ' + data.long + '<br>' +
-    	'Latitude: ' + data.lat +
-    	'</div>');
-  });
-</script>
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiG9_G2je7aqBZnjskcTTILnhesRGQS4E&sensor=false">
 </script>
@@ -23,18 +9,19 @@
   function initialize() {
     var mapOptions = {
       center: new google.maps.LatLng(32.71533, -117.15726),
-      zoom: 8
+      zoom: 4,
+      scrollwheel: false,
+      scaleControl: true
     };
     var map = new google.maps.Map(document.getElementById("map-canvas"),
         mapOptions);
 // standard Google Map call end
-
+  var socket = io.connect();
   socket.on('photo', function (data) {
       var contentString = '<div class="post-box">' +
       '<a href="' + data.url + '">' + 
       '<img src="' + data.img + '">' + 
-      '</a><br>' + 
-      '<b>Location:</b>' + 
+      '</a>' + 
       '</div>';
 
       var infowindow = new google.maps.InfoWindow({
