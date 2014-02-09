@@ -62,7 +62,7 @@ function handleNoGeolocation(errorFlag) {
   var infowindow = new google.maps.InfoWindow(options);
   map.setCenter(options.position);
 }
-  socket.on('photo', function (message) {
+  socket.on('photo', function (data) {
      marker = new google.maps.Marker({
        position:  new google.maps.LatLng(data.lat, data.long),
        draggable: true,
