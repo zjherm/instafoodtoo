@@ -47,16 +47,6 @@
   }
 }
 
-socket.on('photo', function(message){
-   marker = new google.maps.Marker({
-     position:  new google.maps.LatLng(data.lat, data.long),
-     draggable: true,
-     map:       map,
-     guid:      response.guid
-   });
-   markers[response.guid] = marker;
- }
-
 function handleNoGeolocation(errorFlag) {
   if (errorFlag) {
     var content = 'Error: The Geolocation service failed.';
