@@ -52,13 +52,13 @@ app.get('/', function(req, res){
       res.render('index.ejs', {
       layout:false,
       locals: { 
-        someVariable: "Live Hashtags for #lebron and #sherman"
+        someVariable: "Live Hashtags for #breakfast"
          }
       });
   });
 app.get('/set_sub', function(req, res) {
-    Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'sherman' });
-    Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'lebron' });
+    Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'breakfast' });
+    // Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'dinner' });
     console.log(Instagram.subscriptions.list());
     res.writeHead(200);
     res.end();
