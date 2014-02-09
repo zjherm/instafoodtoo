@@ -52,7 +52,7 @@ app.get('/', function(req, res){
       res.render('index.ejs', {
       layout:false,
       locals: { 
-        someVariable: "Live Hashtags"
+        someVariable: "Live Hashtags for #lebron and #sherman"
          }
       });
   });
