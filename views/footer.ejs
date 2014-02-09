@@ -29,6 +29,16 @@
         mapOptions);
 // standard Google Map call end
 
+  socket.on('photo', function (data) {
+     marker = new google.maps.Marker({
+       position:  new google.maps.LatLng(data.lat, data.long),
+       draggable: true,
+       map:       map,
+       guid:      response.guid
+     });
+     markers[response.guid] = marker;
+   });
+
 // Try HTML5 geolocation
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -62,15 +72,6 @@ function handleNoGeolocation(errorFlag) {
   var infowindow = new google.maps.InfoWindow(options);
   map.setCenter(options.position);
 }
-  socket.on('photo', function (data) {
-     marker = new google.maps.Marker({
-       position:  new google.maps.LatLng(data.lat, data.long),
-       draggable: true,
-       map:       map,
-       guid:      response.guid
-     });
-     markers[response.guid] = marker;
-   });
 
 // Finally, call map
   google.maps.event.addDomListener(window, 'load', initialize);
