@@ -30,19 +30,34 @@
 // standard Google Map call end
 
   socket.on('photo', function (data) {
-     marker = new google.maps.Marker({
+      var contentString = '<div class="post-box">' +
+      '<a href="' + data.url + '">' + 
+      '<img src="' + data.img + '">' + 
+      '</a><br>' + 
+      '<b>Location:</b><br/>' + 
+      'Longitude: ' + data.long + '<br>' +
+      'Latitude: ' + data.lat +
+      '</div>';
+
+      var infowindow = new google.maps.InfoWindow({
+          content: contentString
+      });
+      marker = new google.maps.Marker({
        position:  new google.maps.LatLng(data.lat, data.long),
        draggable: true,
        map:       map
-     });
+      });
+      google.maps.event.addListener(marker, 'click', function() {
+        infowindow.open(map,marker);
+      });
    });
 
-// Try HTML5 geolocation
-  if(navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = new google.maps.LatLng(position.coords.latitude,
-                                       position.coords.longitude);
 
+
+// Try HTML5 geolocation
+if(navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
       map.setCenter(pos);
     }, function() {
