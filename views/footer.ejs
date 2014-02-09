@@ -55,6 +55,7 @@
       marker = new google.maps.Marker({
        position:  new google.maps.LatLng(data.lat, data.long),
        draggable: true,
+       animation: google.maps.Animation.DROP,
        map:       map
       });
       google.maps.event.addListener(marker, 'click', function() {
