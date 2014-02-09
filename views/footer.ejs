@@ -27,7 +27,15 @@
     };
     var map = new google.maps.Map(document.getElementById("map-canvas"),
         mapOptions);
-
+    socket.on('photo', function(message){
+       marker = new google.maps.Marker({
+         position:  new google.maps.LatLng(data.lat, data.long),
+         draggable: true,
+         map:       map,
+         guid:      response.guid
+       });
+       markers[response.guid] = marker;
+     }
 // standard Google Map call end
 
 // Try HTML5 geolocation
