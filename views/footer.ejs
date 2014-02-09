@@ -33,10 +33,8 @@
      marker = new google.maps.Marker({
        position:  new google.maps.LatLng(data.lat, data.long),
        draggable: true,
-       map:       map,
-       guid:      response.guid
+       map:       map
      });
-     markers[response.guid] = marker;
    });
 
 // Try HTML5 geolocation
