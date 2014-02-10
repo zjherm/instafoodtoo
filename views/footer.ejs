@@ -3,6 +3,17 @@
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiG9_G2je7aqBZnjskcTTILnhesRGQS4E&sensor=false">
 </script>
+<script>
+var socket = io.connect();
+var igBox = '<div class="post-box">' +
+  '<a href="' + data.url + '">' + 
+  '<img src="' + data.img + '">' + 
+  '</a>' + 
+  '</div>';
+socket.on('photo', function (data) {
+  $('#latest-post').innerHTML(igBox);
+}
+</script>
 <script type="text/javascript">
 
 // Standard Google Map call begin
