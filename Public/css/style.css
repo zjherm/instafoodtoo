@@ -1,6 +1,7 @@
 .content {
 	float: left;
 	width: 70%;
+	height: auto;
 }
 #map-canvas {
 	width: 100%;
@@ -16,7 +17,9 @@
 #sidebar {
 	float: left;
 	width: 30%;
-	background: #999;
+	background: #000;
+	overflow: hidden;
+	height: 100%;
 }
 #latest-post .post-box img {
     width: 100%;
