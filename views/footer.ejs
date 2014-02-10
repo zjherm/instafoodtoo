@@ -11,7 +11,7 @@ socket.on('photo', function (data) {
   '<img src="' + data.img + '">' + 
   '</a>' + 
   '</div>';
-  $('#latest-post').append(igBox);
+  $('#latest-post').prepend(igBox);
 });
 </script>
 <script type="text/javascript">
