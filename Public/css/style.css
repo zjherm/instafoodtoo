@@ -18,3 +18,10 @@
 	width: 30%;
 	background: #999;
 }
+#latest-post .post-box img {
+    width: 100%;
+}
+#latest-post .post-box {
+    width: 96%;
+    padding: 1% 2%;
+}
