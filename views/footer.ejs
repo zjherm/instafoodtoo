@@ -43,7 +43,7 @@ socket.on('photo', function (data) {
 
     var mapOptions = {
       center: new google.maps.LatLng(32.71533, -117.15726),
-      zoom: 6,
+      zoom: 4,
       scrollwheel: false,
       scaleControl: true,
       styles: styles
@@ -54,11 +54,11 @@ socket.on('photo', function (data) {
 // standard Google Map call end
   var socket = io.connect();
   socket.on('photo', function (data) {
-      var contentString = '<div class="post-box">' +
-      '<a href="' + data.url + '">' + 
-      '<img src="' + data.img + '">' + 
-      '</a>' + 
-      '</div>';
+      // var contentString = '<div class="post-box">' +
+      // '<a href="' + data.url + '">' + 
+      // '<img src="' + data.img + '">' + 
+      // '</a>' + 
+      // '</div>';
 
       // var infowindow = new google.maps.InfoWindow({
       //    content: contentString
@@ -77,10 +77,10 @@ socket.on('photo', function (data) {
          map: map,
          title: data.caption
       });
-      google.maps.event.addListener(marker, 'click', function() {
-        infowindow.open(map,marker);
-      });
-      infowindow.open(map,marker);
+      // google.maps.event.addListener(marker, 'click', function() {
+      //   infowindow.open(map,marker);
+      // });
+      // infowindow.open(map,marker);
    });
 
 
