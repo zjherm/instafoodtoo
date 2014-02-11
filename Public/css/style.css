@@ -1,11 +1,11 @@
 .content {
 	float: left;
-	width: 70%;
-	height: auto;
+	width: 60%;
+	height: 100%;
 }
 #map-canvas {
 	width: 100%;
-	height: 500px;
+	height: 100%;
 }
 .post-box img {
     width: 150px;
@@ -14,17 +14,24 @@
 .post-box {
     width: 100px;
 }
+.post-box a {
+    display: block;
+    float: left;
+    padding: 1%;
+}
 #sidebar {
 	float: left;
-	width: 30%;
+	width: 40%;
 	background: #000;
 	overflow: hidden;
 	height: 100%;
 }
 #latest-post .post-box img {
     width: 100%;
+    display: block;
+    padding: 0%;
 }
 #latest-post .post-box {
-    width: 96%;
-    padding: 1% 2%;
+    width: 33.3%;
+    float: left;
 }
