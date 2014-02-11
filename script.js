@@ -79,6 +79,7 @@ function getPhoto(inf){
           piece.url = data[0].link;
           piece.long = data[0].location.longitude;
           piece.lat = data[0].location.latitude;
+          piece.caption = data[0].caption.text;
           // console.log(piece.img)
           // io.sockets.emit('alert', prt.object_id);
           io.sockets.emit('photo', piece);
