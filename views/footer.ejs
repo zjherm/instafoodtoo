@@ -75,7 +75,7 @@ socket.on('photo', function (data) {
          animation: google.maps.Animation.DROP,
          icon: icon,
          map: map,
-         title: caption
+         title: data.caption
       });
       google.maps.event.addListener(marker, 'click', function() {
         infowindow.open(map,marker);
