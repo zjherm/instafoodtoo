@@ -63,13 +63,19 @@ socket.on('photo', function (data) {
       // var infowindow = new google.maps.InfoWindow({
       //    content: contentString
       // });
+      var icon = {
+         url: data.img, // url
+         size: new google.maps.Size(20, 20), // size
+         // origin: new google.maps.Point(0,0), // origin
+         // anchor: new google.maps.Point(anchor_left, anchor_top) // anchor 
+      };
       marker = new google.maps.Marker({
-       position:  new google.maps.LatLng(data.lat, data.long),
-       draggable: true,
-       animation: google.maps.Animation.DROP,
-       icon: data.img,
-       size: new google.maps.Size(20, 20),
-       map:       map
+         position:  new google.maps.LatLng(data.lat, data.long),
+         draggable: true,
+         animation: google.maps.Animation.DROP,
+         icon: icon,
+         size: new google.maps.Size(20, 20),
+         map: map
       });
       google.maps.event.addListener(marker, 'click', function() {
         infowindow.open(map,marker);
