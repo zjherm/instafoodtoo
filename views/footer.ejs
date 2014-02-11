@@ -65,7 +65,7 @@ socket.on('photo', function (data) {
       // });
       var icon = {
          url: data.img, // url
-         size: new google.maps.Size(20, 20), // size
+         size: new google.maps.Size(80, 80), // size
          // origin: new google.maps.Point(0,0), // origin
          // anchor: new google.maps.Point(anchor_left, anchor_top) // anchor 
       };
@@ -74,7 +74,6 @@ socket.on('photo', function (data) {
          draggable: true,
          animation: google.maps.Animation.DROP,
          icon: icon,
-         size: new google.maps.Size(80, 80),
          map: map
       });
       google.maps.event.addListener(marker, 'click', function() {
