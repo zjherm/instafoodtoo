@@ -75,7 +75,7 @@ function getPhoto(inf){
         if(data[0] == null){
         }else{
           var piece = {};
-          piece.img = data[0].images.low_resolution.url;
+          piece.img = data[0].images.standard_resolution.url;
           piece.url = data[0].link;
           piece.long = data[0].location.longitude;
           piece.lat = data[0].location.latitude;

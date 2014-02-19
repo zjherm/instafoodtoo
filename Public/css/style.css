@@ -31,14 +31,21 @@
 	position: absolute;
 	right: 0;
 }*/
+#latest-post {
+    max-width: 614px;
+    margin: 0 auto;
+    width: 100%;
+}
+#tabs-2 {
+    overflow: hidden;
+}
 #latest-post .post-box img {
     width: 100%;
     display: block;
     padding: 0%;
 }
 #latest-post .post-box {
-    width: 33.3%;
-    float: left;
+    width: 100%;
 }
 .gm-style div div div div div img {
     width: 100% !important;
