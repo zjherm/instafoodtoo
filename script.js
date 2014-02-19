@@ -83,7 +83,6 @@ function getPhoto(inf){
           piece.username = data[0].user.username;
           piece.userpic = data[0].user.profile_picture;
           piece.comments = data[0].comments.data;
-
           io.sockets.emit('photo', piece);
         }
     }
