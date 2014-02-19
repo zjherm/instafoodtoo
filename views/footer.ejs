@@ -24,14 +24,13 @@ socket.on('photo', function (data) {
     '</div>' +
     '<div class="comments"></div>' +
   '</div>';
-  for(var i=0; i>data.comments.length; i++) {
-    $('.comments').prepend(
-      '<div class="comment">' + 
-        '<span class="username">' + data.comments[i].from.username + '</span>' + 
-      '</div>'
-      );
-    console.log(data.comments[i].from.username);
+for (var comment in data.comments){
+  if data.comments.hasOwnProperty(comment){ 
+    console.log("looks good");
   }
+}
+
+
   $('#latest-post').prepend(igBox).fadeIn(500);
 });
 </script>
