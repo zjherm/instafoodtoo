@@ -22,7 +22,7 @@
     height: auto;
 }
 #latest-post {
-    max-width: 614px;
+    max-width: 510px;
     margin: 0 auto;
     width: 100%;
     background: #e0e1e2;
@@ -41,10 +41,8 @@
 }
 #latest-post .post-box {
     width: 100%;
-    /* border: 1px solid #000; */
     overflow: hidden;
     margin-bottom: 20px;
-    /* padding: 2%; */
     background: #fff;
 }
 #latest-post .post-box .userinfo img {
