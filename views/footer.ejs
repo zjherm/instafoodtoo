@@ -25,8 +25,10 @@ socket.on('photo', function (data) {
     '<div class="comments"></div>' +
   '</div>';
 for (var i = 0, commentLength = data.comments.length; i < commentLength; i++) {
-  console.log(data.comments[i].from.username);
-  console.log(data.comments[i].text);
+  $('.comments').prepend(
+    '<span class="commenter">' + data.comments[i].from.username) + '</span>';
+    '<span class="comment">' + data.comments[i].text) + '</span>';
+  )
 }
 
   $('#latest-post').prepend(igBox).fadeIn(500);
