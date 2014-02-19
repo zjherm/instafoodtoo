@@ -32,10 +32,10 @@
 	-moz-box-shadow: inset 1px 0 0 rgba(0,0,0,.05), inset -1px 0 0 rgba(0,0,0,.05);
 	box-shadow: inset 1px 0 0 rgba(0,0,0,.05), inset -1px 0 0 rgba(0,0,0,.05);
 }
-.ui-tabs-nav li {
+/*.ui-tabs-nav li {
     background: #edeeef !important;
     width: 49%;
-}
+}*/
 #tabs-2 {
     overflow: hidden;
     background: #edeeef;
