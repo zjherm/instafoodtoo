@@ -24,7 +24,7 @@ socket.on('photo', function (data) {
     '</div>' +
     '<div class="comments"></div>' +
   '</div>';
-  for(var i=0; i>data.comments; i++) {
+  for(var i=0; i>data.comments.length; i++) {
     $('.comments').prepend(
       '<div class="comment">' + 
         '<span class="username">' + data.comments[i].from.username + '</span>' + 
