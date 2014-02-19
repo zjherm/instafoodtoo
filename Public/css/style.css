@@ -16,7 +16,6 @@
 .post-box a {
     display: block;
     float: left;
-    padding: 1%;
 }
 .post-box img {
     width: 150px;
@@ -26,6 +25,9 @@
     max-width: 614px;
     margin: 0 auto;
     width: 100%;
+    background: #e0e1e2;
+    padding: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 #tabs-2 {
     overflow: hidden;
@@ -34,9 +36,35 @@
     width: 100%;
     display: block;
     padding: 0%;
+    float: left;
+    padding-right: 10px;
 }
 #latest-post .post-box {
     width: 100%;
+    /* border: 1px solid #000; */
+    overflow: hidden;
+    margin-bottom: 20px;
+    /* padding: 2%; */
+    background: #fff;
+}
+#latest-post .post-box .userinfo img {
+    width: 50px;
+    margin-bottom: 15px;
+}
+.userinfo {
+    width: 96%;
+    padding: 2%;
+    float: left;
+}
+#latest-post .post-box .name {
+    display: block;
+    float: left;
+}
+#latest-post .post-box .caption {
+    width: 100%;
+    display: block;
+    float: left;
+    font-size: 13px;
 }
 .gm-style div div div div div img {
     width: 100% !important;
