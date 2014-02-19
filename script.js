@@ -66,7 +66,7 @@ app.get('/set_sub', function(req, res) {
 });
 
 app.get('/cancel_sub', function(req, res) {
-    Instagram.media.unsubscribe_all();
+    Instagram.subscriptions.unsubscribe_all();
     console.log(Instagram.subscriptions.list());
     res.writeHead(200);
     res.end();
