@@ -23,7 +23,7 @@ socket.on('photo', function (data) {
       '<span class="caption">' + data.caption + '</span>' +
     '</div>' +
   '</div>';
-  $(html).hide().('#latest-post').prepend(igBox).fadeIn(500);
+  $('#latest-post').hide().prepend(igBox).fadeIn(500);
 });
 </script>
 <script type="text/javascript">
