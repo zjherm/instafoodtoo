@@ -28,9 +28,20 @@
     background: #e0e1e2;
     padding: 40px;
     border: 1px solid rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: inset 1px 0 0 rgba(0,0,0,.05), inset -1px 0 0 rgba(0,0,0,.05);
+	-moz-box-shadow: inset 1px 0 0 rgba(0,0,0,.05), inset -1px 0 0 rgba(0,0,0,.05);
+	box-shadow: inset 1px 0 0 rgba(0,0,0,.05), inset -1px 0 0 rgba(0,0,0,.05);
+}
+.ui-tabs-nav li {
+    background: #edeeef !important;
+    width: 49%;
 }
 #tabs-2 {
     overflow: hidden;
+    background: #edeeef;
+}
+.ui-tabs-nav li {
+    background: #edeeef !important;
 }
 #latest-post .post-box img {
     width: 100%;
