@@ -82,6 +82,7 @@ function getPhoto(inf){
           piece.caption = data[0].caption.text;
           piece.username = data[0].user.username;
           piece.userpic = data[0].user.profile_picture;
+          piece.comments = data[0].comments.data;
           io.sockets.emit('photo', piece);
         }
     }
@@ -89,4 +90,28 @@ function getPhoto(inf){
   console.log("====================END BODY=======================");
 }
 
-
+        "comments": {
+            "data": [{
+                "created_time": "1279332030",
+                "text": "Love the sign here",
+                "from": {
+                    "username": "mikeyk",
+                    "full_name": "Mikey Krieger",
+                    "id": "4",
+                    "profile_picture": "http://distillery.s3.amazonaws.com/profiles/profile_1242695_75sq_1293915800.jpg"
+                },
+                "id": "8"
+            },
+            {
+                "created_time": "1279341004",
+                "text": "Chilako taco",
+                "from": {
+                    "username": "kevin",
+                    "full_name": "Kevin S",
+                    "id": "3",
+                    "profile_picture": "..."
+                },
+                "id": "3"
+            }],
+            "count": 2
+        },

@@ -22,7 +22,15 @@ socket.on('photo', function (data) {
       '<span class="name">' + data.username + '</span>' +
       '<span class="caption">' + data.caption + '</span>' +
     '</div>' +
+    '<div class="comments"></div>' +
   '</div>';
+  for(var i=0; i>data.comments; i++) {
+    $('.comments').prepend(
+      '<div class="comment">' + 
+        '<span class="username">' + data.comments[i].from.username + '</span>' + 
+      '</div>'
+      );
+  }
   $('#latest-post').prepend(igBox).fadeIn(500);
 });
 </script>
