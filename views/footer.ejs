@@ -12,10 +12,16 @@ $(function() {
 <script>
 var socket = io.connect();
 socket.on('photo', function (data) {
-  var igBox = '<div class="post-box">' +
-  '<a href="' + data.url + '">' + 
-  '<img src="' + data.img + '">' + 
-  '</a>' + 
+  var igBox = 
+  '<div class="post-box">' +
+    '<a href="' + data.url + '">' + 
+      '<img src="' + data.img + '">' + 
+    '</a>' + 
+    '<div class="userinfo">' +
+      '<img src="' + data.userpic + '">' + 
+      '<span class="name">' + data.username + '</span>' +
+      '<span class="caption">' + data.caption + '</span>' +
+    '</div>' +
   '</div>';
   $('#latest-post').prepend(igBox);
 });

@@ -80,8 +80,8 @@ function getPhoto(inf){
           piece.long = data[0].location.longitude;
           piece.lat = data[0].location.latitude;
           piece.caption = data[0].caption.text;
-          // console.log(piece.img)
-          // io.sockets.emit('alert', prt.object_id);
+          piece.username = data[0].user.username;
+          piece.userpic = data[0].user.profile_picture;
           io.sockets.emit('photo', piece);
         }
     }
