@@ -65,6 +65,16 @@ app.get('/set_sub', function(req, res) {
 
 });
 
+app.get('/cancel_sub', function(req, res) {
+    Instagram.media.unsubscribe_all();
+    console.log(Instagram.subscriptions.list());
+    res.writeHead(200);
+    res.end();
+
+});
+
+
+
 function getPhoto(inf){
   inf = JSON.parse(inf); //Pasrse the JSON
   prt = inf[0]; // Grab the first object, IG sends about 20..
