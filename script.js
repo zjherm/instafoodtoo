@@ -32,13 +32,9 @@ app.use(express.logger());
 app.post('/endpoint', function (req, res) {
      var body = "";
         req.on('data', function (chunk) {
-          console.log('chunk');
-          console.log('this is the chunk ' + chunk);
           body += chunk;
-          console.log('this is the body ' + body);
         });
         req.on('end', function () {
-          console.log('end');
           getPhoto(body);
           res.writeHead(200);
           res.end();
@@ -51,9 +47,9 @@ app.get('/endpoint', function (req, res){
 app.get('/', function(req, res){
       res.render('index.ejs', {
       layout:false,
-      locals: { 
-        someVariable: "Live Hashtags for #breakfast"
-         }
+      // locals: { 
+      //   someVariable: "Live Hashtags for #breakfast"
+      //    }
       });
   });
 app.get('/set_sub', function(req, res) {
@@ -68,7 +64,6 @@ app.get('/set_sub', function(req, res) {
 function getPhoto(inf){
   inf = JSON.parse(inf); //Pasrse the JSON
   prt = inf[0]; // Grab the first object, IG sends about 20..
-  console.log("=======================BODY========================");
   Instagram.tags.recent({
     name: prt.object_id,
     complete: function(data){
@@ -80,13 +75,8 @@ function getPhoto(inf){
           piece.long = data[0].location.longitude;
           piece.lat = data[0].location.latitude;
           piece.caption = data[0].caption.text;
-          // console.log(piece.img)
-          // io.sockets.emit('alert', prt.object_id);
           io.sockets.emit('photo', piece);
         }
     }
   });
-  console.log("====================END BODY=======================");
 }
-
-

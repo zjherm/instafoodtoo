@@ -1,5 +1,6 @@
 <script src="/socket.io/socket.io.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="/js/jquery-ui-1.10.4.custom.js"></script>
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiG9_G2je7aqBZnjskcTTILnhesRGQS4E&sensor=false">
 </script>
@@ -17,108 +18,91 @@ socket.on('photo', function (data) {
 <script type="text/javascript">
 
 // Standard Google Map call begin
-  function initialize() {
+    function initialize() {
 
-    var styles = [
-      {
-        "featureType": "landscape",
-        "stylers": [
-          { "color": "#808080" },
-          { "visibility": "simplified" }
-        ]
-      },{
-        "featureType": "administrative",
-        "elementType": "labels.text.fill",
-        "stylers": [
-          { "weight": 0.1 },
-          { "lightness": 100 },
-          { "visibility": "off" }
-        ]
-      },{
-      }
-    ];
-    // Create a new StyledMapType object, passing it the array of styles,
-    // as well as the name to be displayed on the map type control.
-    var styledMap = new google.maps.StyledMapType(styles,{name: "Zacks Styles"});
+      var styles = [
+        {
+          "featureType": "landscape",
+          "stylers": [
+            { "color": "#808080" },
+            { "visibility": "simplified" }
+          ]
+        },{
+          "featureType": "administrative",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            { "weight": 0.1 },
+            { "lightness": 100 },
+            { "visibility": "off" }
+          ]
+        },{
+        }
+      ];
+      // Create a new StyledMapType object, passing it the array of styles,
+      // as well as the name to be displayed on the map type control.
+      var styledMap = new google.maps.StyledMapType(styles,{name: "Zacks Styles"});
 
-    var mapOptions = {
-      center: new google.maps.LatLng(32.71533, -117.15726),
-      zoom: 4,
-      scrollwheel: false,
-      scaleControl: true,
-      styles: styles
-    };
-    var map = new google.maps.Map(document.getElementById("map-canvas"),
-        mapOptions);
-
-// standard Google Map call end
-  var socket = io.connect();
-  socket.on('photo', function (data) {
-      // var contentString = '<div class="post-box">' +
-      // '<a href="' + data.url + '">' + 
-      // '<img src="' + data.img + '">' + 
-      // '</a>' + 
-      // '</div>';
-
-      // var infowindow = new google.maps.InfoWindow({
-      //    content: contentString
-      // });
-      var icon = {
-         url: data.img, // url
-         size: new google.maps.Size(80, 80), // size
-         // origin: new google.maps.Point(0,0), // origin
-         // anchor: new google.maps.Point(anchor_left, anchor_top) // anchor 
+      var mapOptions = {
+        center: new google.maps.LatLng(32.71533, -117.15726),
+        zoom: 4,
+        scrollwheel: false,
+        scaleControl: true,
+        styles: styles
       };
-      marker = new google.maps.Marker({
-         position:  new google.maps.LatLng(data.lat, data.long),
-         draggable: true,
-         animation: google.maps.Animation.DROP,
-         icon: icon,
-         map: map,
-         title: data.caption
+      var map = new google.maps.Map(document.getElementById("map-canvas"),
+          mapOptions);
+
+  // standard Google Map call end
+    var socket = io.connect();
+    socket.on('photo', function (data) {
+        var icon = {
+           url: data.img, // url
+           size: new google.maps.Size(80, 80), // size
+        };
+        marker = new google.maps.Marker({
+           position:  new google.maps.LatLng(data.lat, data.long),
+           draggable: true,
+           animation: google.maps.Animation.DROP,
+           icon: icon,
+           map: map,
+           title: data.caption
+        });
+     });
+
+  // Try HTML5 geolocation
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+        map.setCenter(pos);
+      }, function() {
+        handleNoGeolocation(true);
       });
-      // google.maps.event.addListener(marker, 'click', function() {
-      //   infowindow.open(map,marker);
-      // });
-      // infowindow.open(map,marker);
-   });
-
-
-
-// Try HTML5 geolocation
-if(navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(function(position) {
-    var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-
-      map.setCenter(pos);
-    }, function() {
-      handleNoGeolocation(true);
-    });
-  } else {
-    // Browser doesn't support Geolocation
-    handleNoGeolocation(false);
-  }
-}
-
-function handleNoGeolocation(errorFlag) {
-  if (errorFlag) {
-    var content = 'Error: The Geolocation service failed.';
-  } else {
-    var content = 'Error: Your browser doesn\'t support geolocation.';
+    } else {
+      // Browser doesn't support Geolocation
+      handleNoGeolocation(false);
+    }
   }
 
-  var options = {
-    map: map,
-    position: new google.maps.LatLng(60, 105),
-    content: content
-  };
+  function handleNoGeolocation(errorFlag) {
+    if (errorFlag) {
+      var content = 'Error: The Geolocation service failed.';
+    } else {
+      var content = 'Error: Your browser doesn\'t support geolocation.';
+    }
 
-  var infowindow = new google.maps.InfoWindow(options);
-  map.setCenter(options.position);
-}
+    var options = {
+      map: map,
+      position: new google.maps.LatLng(60, 105),
+      content: content
+    };
 
-// Finally, call map
-  google.maps.event.addDomListener(window, 'load', initialize);
+    var infowindow = new google.maps.InfoWindow(options);
+    map.setCenter(options.position);
+  }
+
+  // Finally, call map
+    google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 </body>
 </html>
