@@ -72,7 +72,7 @@ socket.on('photo', function (data) {
       var map = new google.maps.Map(document.getElementById("map-canvas"),
         mapOptions);
       google.maps.event.addListener(map, 'bounds_changed', function() {
-        console.log("Center latitude: " + this.getCenter().lat() + "longitude" + this.getCenter().long());
+        console.log("Center latitude: " + this.getCenter().lat() + "longitude" + this.getCenter().lng());
       });
 
       // standard Google Map call end
