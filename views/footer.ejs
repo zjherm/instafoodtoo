@@ -12,6 +12,13 @@ $(function() {
 <script>
 var socket = io.connect();
 socket.on('photo', function (data) {
+  var igComments = [];
+  for (var i = 0, commentLength = data.comments.length; i < commentLength; i++) {
+    theComments.push(
+      '<div class="comment-box"><span class="commenter">' + data.comments[i].from.username + '</span>' +
+      '<span class="comment">' + data.comments[i].text + '</span></div>'
+    )
+  }
   var igBox = 
   '<div class="post-box">' +
     '<a href="' + data.url + '">' + 
@@ -22,14 +29,8 @@ socket.on('photo', function (data) {
       '<span class="name">' + data.username + '</span>' +
       '<span class="caption">' + data.caption + '</span>' +
     '</div>' +
-    '<div class="comments"></div>' +
+    '<div class="comments">' + myComments.join() + '</div>' +
   '</div>';
-for (var i = 0, commentLength = data.comments.length; i < commentLength; i++) {
-  $('.comments').prepend(
-    '<div class="comment-box"><span class="commenter">' + data.comments[i].from.username + '</span>' +
-    '<span class="comment">' + data.comments[i].text + '</span></div>'
-  )
-}
 
   $('#latest-post').prepend(igBox).fadeIn(500);
 });
