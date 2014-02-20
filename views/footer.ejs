@@ -29,7 +29,7 @@ socket.on('photo', function (data) {
       '<span class="name">' + data.username + '</span>' +
       '<span class="caption">' + data.caption + '</span>' +
     '</div>' +
-    '<div class="comments">' + igComments.join() + '</div>' +
+    '<div class="comments">' + igComments.join('') + '</div>' +
   '</div>';
 
   $('#latest-post').prepend(igBox).fadeIn(500);
