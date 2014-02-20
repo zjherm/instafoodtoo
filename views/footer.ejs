@@ -71,7 +71,7 @@ socket.on('photo', function (data) {
       };
       var map = new google.maps.Map(document.getElementById("map-canvas"),
           mapOptions);
-      var bounds = this.getBounds();
+      var bounds = map.getBounds();
     google.maps.event.addListener(map, 'bounds_changed', function() {
        console.log(bounds);
     });
