@@ -14,7 +14,7 @@ var socket = io.connect();
 socket.on('photo', function (data) {
   var igComments = [];
   for (var i = 0, commentLength = data.comments.length; i < commentLength; i++) {
-    theComments.push(
+    igComments.push(
       '<div class="comment-box"><span class="commenter">' + data.comments[i].from.username + '</span>' +
       '<span class="comment">' + data.comments[i].text + '</span></div>'
     )
@@ -29,7 +29,7 @@ socket.on('photo', function (data) {
       '<span class="name">' + data.username + '</span>' +
       '<span class="caption">' + data.caption + '</span>' +
     '</div>' +
-    '<div class="comments">' + myComments.join() + '</div>' +
+    '<div class="comments">' + igComments.join() + '</div>' +
   '</div>';
 
   $('#latest-post').prepend(igBox).fadeIn(500);
