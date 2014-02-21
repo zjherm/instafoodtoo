@@ -112,8 +112,8 @@ socket.on('photo', function (data) {
           " Southwest lat: " + this.getBounds().getSouthWest().lat() + 
           " Southwest lng: " + this.getBounds().getSouthWest().lng() + 
           " Northeast lat: " + this.getBounds().getNorthEast().lat() + 
-          " Northeast lng: " + this.getBounds().getNorthEast().lng() + 
-          )
+          " Northeast lng: " + this.getBounds().getNorthEast().lng()
+          );
       });
 
       var socket = io.connect();
