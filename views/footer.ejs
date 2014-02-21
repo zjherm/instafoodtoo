@@ -105,7 +105,7 @@ socket.on('photo', function (data) {
 
           google.maps.event.addListener(map, 'bounds_changed', function() {
             var southWestLat = map.getBounds().getSouthWest().lat();
-            var southwestLng = map.getBounds().getSouthWest().lng();
+            var southWestLng = map.getBounds().getSouthWest().lng();
             var northEastLat = map.getBounds().getNorthEast().lat();
             var northEastLng = map.getBounds().getNorthEast().lng();
             if (currentLat > southWestLat && currentLat < northEastLat && currentLng > southWestLng && currentLng < northEastLng) {
