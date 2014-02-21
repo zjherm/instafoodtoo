@@ -84,47 +84,32 @@ socket.on('photo', function (data) {
             handleNoGeolocation(true);
           });
 
-        // google.maps.event.addListener(map, 'bounds_changed', function() {
-        //   console.log(
-        //     "Center latitude: " + this.getCenter().lat() + 
-        //     " longitude: " + this.getCenter().lng() +
-        //     " Southwest lat: " + this.getBounds().getSouthWest().lat() + 
-        //     " Southwest lng: " + this.getBounds().getSouthWest().lng() + 
-        //     " Northeast lat: " + this.getBounds().getNorthEast().lat() + 
-        //     " Northeast lng: " + this.getBounds().getNorthEast().lng()
-        //     );
-        // });
-
-
-
-
-        var socket = io.connect();
-        socket.on('photo', function (data) {
-          var currentLat = data.lat;
-          var currentLng = data.long;
-
-          google.maps.event.addListener(map, 'tilesloaded', function() {
-            var southWestLat = map.getBounds().getSouthWest().lat();
-            var southWestLng = map.getBounds().getSouthWest().lng();
-            var northEastLat = map.getBounds().getNorthEast().lat();
-            var northEastLng = map.getBounds().getNorthEast().lng();
-            if (currentLat > southWestLat && currentLat < northEastLat && currentLng > southWestLng && currentLng < northEastLng) {
-              console.log("if statement true. southWestLat: " + southWestLat + " northEastLat: " + northEastLat + " currentLat: " + currentLat);
-              var icon = {
-                 url: data.img, // url
-                 size: new google.maps.Size(80, 80), // size
-              };
-              marker = new google.maps.Marker({
-                 position:  new google.maps.LatLng(data.lat, data.long),
-                 draggable: true,
-                 animation: google.maps.Animation.DROP,
-                 icon: icon,
-                 map: map,
-                 title: data.caption
-              });
-            } // endif
-          });
+        google.maps.event.addListener(map, 'bounds_changed', function() {
+          console.log(
+            "Center latitude: " + this.getCenter().lat() + 
+            " longitude: " + this.getCenter().lng() +
+            " Southwest lat: " + this.getBounds().getSouthWest().lat() + 
+            " Southwest lng: " + this.getBounds().getSouthWest().lng() + 
+            " Northeast lat: " + this.getBounds().getNorthEast().lat() + 
+            " Northeast lng: " + this.getBounds().getNorthEast().lng()
+            );
         });
+
+          var socket = io.connect();
+          socket.on('photo', function (data) {
+            var icon = {
+               url: data.img, // url
+               size: new google.maps.Size(80, 80), // size
+            };
+            marker = new google.maps.Marker({
+               position:  new google.maps.LatLng(data.lat, data.long),
+               draggable: true,
+               animation: google.maps.Animation.DROP,
+               icon: icon,
+               map: map,
+               title: data.caption
+            });
+          });
 
         } else {
           // Browser doesn't support Geolocation
