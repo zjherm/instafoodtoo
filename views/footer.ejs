@@ -64,7 +64,7 @@ socket.on('photo', function (data) {
 
       var mapOptions = {
         center: new google.maps.LatLng(32.71533, -117.15726),
-        zoom: 4,
+        zoom: 9,
         scrollwheel: false,
         scaleControl: true,
         styles: styles
@@ -72,7 +72,7 @@ socket.on('photo', function (data) {
       var map = new google.maps.Map(document.getElementById("map-canvas"),
         mapOptions);
       google.maps.event.addListener(map, 'bounds_changed', function() {
-        console.log("Center latitude: " + this.getCenter().lat() + "longitude" + this.getCenter().lng());
+        console.log("Center latitude: " + this.getCenter().lat() + " longitude: " + this.getCenter().lng());
       });
 
       // standard Google Map call end
