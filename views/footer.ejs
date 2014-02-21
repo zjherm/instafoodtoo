@@ -84,25 +84,27 @@ socket.on('photo', function (data) {
             handleNoGeolocation(true);
           });
 
-        google.maps.event.addListener(map, 'bounds_changed', function() {
-          console.log(
-            "Center latitude: " + this.getCenter().lat() + 
-            " longitude: " + this.getCenter().lng() +
-            " Southwest lat: " + this.getBounds().getSouthWest().lat() + 
-            " Southwest lng: " + this.getBounds().getSouthWest().lng() + 
-            " Northeast lat: " + this.getBounds().getNorthEast().lat() + 
-            " Northeast lng: " + this.getBounds().getNorthEast().lng()
-            );
-        });
+        
+          // console.log(
+          //   "Center latitude: " + this.getCenter().lat() + 
+          //   " longitude: " + this.getCenter().lng() +
+          //   " Southwest lat: " + this.getBounds().getSouthWest().lat() + 
+          //   " Southwest lng: " + this.getBounds().getSouthWest().lng() + 
+          //   " Northeast lat: " + this.getBounds().getNorthEast().lat() + 
+          //   " Northeast lng: " + this.getBounds().getNorthEast().lng()
+          //   );
+        
 
-        var southWestLat = map.getBounds().getSouthWest().lat();
-        var southwestLng = map.getBounds().getSouthWest().lng();
-        var northEastLat = map.getBounds().getNorthEast().lat();
-        var northEastLng = map.getBounds().getNorthEast().lng();
+
 
 
         var socket = io.connect();
         socket.on('photo', function (data) {
+          google.maps.event.addListener(map, 'bounds_changed', function() {
+          var southWestLat = map.getBounds().getSouthWest().lat();
+          var southwestLng = map.getBounds().getSouthWest().lng();
+          var northEastLat = map.getBounds().getNorthEast().lat();
+          var northEastLng = map.getBounds().getNorthEast().lng();
           var currentLat = data.lat;
           var currentLng = data.long;
           if (currentLat > southWestLat && currentLat < northEastLat && currentLng > southWestLng && currentLng < northEastLng) {
@@ -117,6 +119,7 @@ socket.on('photo', function (data) {
                icon: icon,
                map: map,
                title: data.caption
+            });
             });
           }
         });
