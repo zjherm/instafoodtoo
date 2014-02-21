@@ -103,7 +103,7 @@ socket.on('photo', function (data) {
           var currentLat = data.lat;
           var currentLng = data.long;
 
-          google.maps.event.addListener(map, 'bounds_changed', function() {
+          google.maps.event.addListener(map, 'tilesloaded', function() {
             var southWestLat = map.getBounds().getSouthWest().lat();
             var southWestLng = map.getBounds().getSouthWest().lng();
             var northEastLat = map.getBounds().getNorthEast().lat();
