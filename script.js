@@ -57,8 +57,7 @@ app.get('/', function(req, res){
       });
   });
 app.get('/set_sub', function(req, res) {
-    Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'breakfast' });
-    Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'dinner' });
+    Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'food' });
     console.log(Instagram.subscriptions.list());
     res.writeHead(200);
     res.end();
