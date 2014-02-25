@@ -53,7 +53,9 @@ function initialize() {
     var northEastLat = map.getBounds().getNorthEast().lat();
     var northEastLng = map.getBounds().getNorthEast().lng();
 
-    if (currentLat > southWestLat && currentLat < northEastLat && currentLng > southWestLng && currentLng < northEastLng) {
+    //IF FOR HASHTAG SUBSCRIPTION
+    //if (currentLat > southWestLat && currentLat < northEastLat && currentLng > southWestLng && currentLng < northEastLng) {
+
 
       var icon = {
         url: data.img, // url
@@ -91,7 +93,7 @@ function initialize() {
 
       $('#latest-post').prepend(igBox).fadeIn(500);
 
-    } // endif
+    // } // endif
 
 
   });

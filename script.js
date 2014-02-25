@@ -16,8 +16,8 @@ io.configure(function () {
   io.set("polling duration", 10); 
 });
 
-Instagram.set('client_id', '98196d9d542248b2aab2261a9b121696');
-Instagram.set('client_secret', 'bb34b287393a489c8d71433137e9439b');
+Instagram.set('client_id', 'd7951fa482ef45848e31c4bf564fd7ac');
+Instagram.set('client_secret', 'bc17e4765fa14d8ea532b091529f48b5');
 Instagram.set('callback_url', 'http://instafood.herokuapp.com/endpoint');
 
 
@@ -56,8 +56,9 @@ app.get('/', function(req, res){
       });
   });
 app.get('/set_sub', function(req, res) {
-
-    Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'food' });
+  // #food subscription
+  //  Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'food' });
+    Instagram.subscriptions.subscribe({ object: 'geography', lat: 32.7150, lng: 117.1625, radius: 1000 });
     console.log(Instagram.subscriptions.list());
     res.writeHead(200);
     res.end();
@@ -89,6 +90,7 @@ function getPhoto(inf){
           piece.username = data[0].user.username;
           piece.userpic = data[0].user.profile_picture;
           piece.comments = data[0].comments.data;
+          piece.tags = data[0].tags;
           io.sockets.emit('photo', piece);
         }
     }
