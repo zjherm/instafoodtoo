@@ -1,3 +1,9 @@
+body {
+    margin: 0;
+}
+#tabs {
+    height: 100%;
+}
 .content {
     float: left;
     width: 100%;
@@ -7,7 +13,7 @@
 }
 #map-canvas {
     width: 100%;
-    min-height: 500px;
+    min-height: 600px;
     height: 100%;
 }
 .post-box {
@@ -113,7 +119,7 @@
     border: 0;
     text-align: center;
     width: 100%;
-    padding: 10px 0 !important;
+    padding: 3% 0 !important;
 }
 .ui-tabs .ui-tabs-nav li {
     border-radius: 0;
@@ -122,6 +128,6 @@
     background: #efefef;
     border: 0;
 }
-.ui-tabs .ui-tabs-nav li.ui-tabs-active {
-    border-top: 3px solid rgb(72, 124, 172);
+.ui-tabs .ui-tabs-nav li.ui-tabs-active a {
+    /* border-top: 3px solid rgb(72, 124, 172); */
 }
