@@ -44,7 +44,6 @@ app.post('/endpoint', function (req, res) {
           res.end();
         });
 });
-
 app.get('/endpoint', function (req, res){
     Instagram.subscriptions.handshake(req, res); 
 });
@@ -57,13 +56,12 @@ app.get('/', function(req, res){
       });
   });
 app.get('/set_sub', function(req, res) {
+
     Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'food' });
     console.log(Instagram.subscriptions.list());
     res.writeHead(200);
     res.end();
-
 });
-
 app.get('/cancel_sub', function(req, res) {
     Instagram.tags.subscriptions.unsubscribe_all();
     console.log(Instagram.subscriptions.list());
