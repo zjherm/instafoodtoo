@@ -9,41 +9,34 @@ $(function() {
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiG9_G2je7aqBZnjskcTTILnhesRGQS4E&sensor=false">
 </script>
-<script>
-var socket = io.connect();
-socket.on('photo', function (data) {
-  // var igComments = [];
-  // for (var i = 0, commentLength = data.comments.length; i < commentLength; i++) {
-  //   igComments.push(
-  //     '<div class="comment-box"><span class="commenter">' + data.comments[i].from.username + '</span>' +
-  //     '<span class="comment">' + data.comments[i].text + '</span></div>'
-  //   )
-  // }
-  // var igBox = 
-  // '<div class="post-box">' +
-  //   '<a href="' + data.url + '">' + 
-  //     '<img src="' + data.img + '">' + 
-  //   '</a>' + 
-  //   '<div class="userinfo">' +
-  //     '<img src="' + data.userpic + '">' + 
-  //     '<span class="name">' + data.username + '</span>' +
-  //     '<span class="caption">' + data.caption + '</span>' +
-  //   '</div>' +
-  //   '<div class="comments">' + igComments.join('') + '</div>' +
-  // '</div>';
-
-  // $('#latest-post').prepend(igBox).fadeIn(500);
-});
-</script>
 <script type="text/javascript">
 
 // Standard Google Map call begin
 function initialize() {
+  var styles = [
+    {
+      "featureType": "landscape",
+      "stylers": [
+        { "color": "#808080" },
+        { "visibility": "simplified" }
+      ]
+    },{
+      "featureType": "administrative",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        { "weight": 0.1 },
+        { "lightness": 100 },
+        { "visibility": "off" }
+      ]
+    },{
+    }
+  ];
 
   var mapOptions = {
     center: new google.maps.LatLng(32.71533, -117.15726),
     zoom: 9,
     scrollwheel: false,
+    style: styles,
     scaleControl: true
   };
   var map = new google.maps.Map(document.getElementById("map-canvas"),
