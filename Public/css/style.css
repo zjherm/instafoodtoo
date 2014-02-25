@@ -25,12 +25,6 @@
     max-width: 510px;
     margin: 0 auto;
     width: 100%;
-    background: #e0e1e2;
-    padding: 40px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: inset 1px 0 0 rgba(0,0,0,.05), inset -1px 0 0 rgba(0,0,0,.05);
-    -moz-box-shadow: inset 1px 0 0 rgba(0,0,0,.05), inset -1px 0 0 rgba(0,0,0,.05);
-    box-shadow: inset 1px 0 0 rgba(0,0,0,.05), inset -1px 0 0 rgba(0,0,0,.05);
 }
 /*.ui-tabs-nav li {
     background: #edeeef !important;
@@ -107,4 +101,26 @@
 .gm-style div div div div div img {
     width: 100% !important;
     height: 100% !important;
+}
+#tabs, .ui-tabs .ui-tabs-panel, .ui-tabs .ui-tabs-nav {
+    background: transparent;
+    border: 0;
+    padding: 0;
+}
+.ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+    background: #fff;
+    border: 0;
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+}
+.ui-tabs .ui-tabs-nav li {
+    border-radius: 0;
+    margin: 0;
+    width: 50%;
+    background: #fff;
+    border: 0;
+}
+.ui-tabs-active a {
+    background: #efefef !important;
 }
