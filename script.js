@@ -70,7 +70,6 @@ app.get('/cancel_sub', function(req, res) {
     console.log(Instagram.subscriptions.list());
     res.writeHead(200);
     res.end();
-
 });
 
 
