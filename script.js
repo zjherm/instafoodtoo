@@ -75,6 +75,7 @@ app.get('/cancel_sub', function(req, res) {
 function getPhoto(inf){
   inf = JSON.parse(inf); //Pasrse the JSON
   prt = inf[0]; // Grab the first object, IG sends about 20..
+  console.log(prt);
   console.log("=======================BODY========================");
   Instagram.tags.recent({
     name: prt.object_id,
