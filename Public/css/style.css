@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    background: #4B8EAE;
 }
 #tabs {
     height: 100%;
@@ -110,7 +111,7 @@ body {
     height: 100% !important;
 }
 #tabs, .ui-tabs .ui-tabs-panel, .ui-tabs .ui-tabs-nav {
-    background: transparent !important;
+    background: #4B8EAE !important;
     border: 0;
     padding: 0 !important;
 }
@@ -129,5 +130,6 @@ body {
     border: 0;
 }
 .ui-tabs .ui-tabs-nav li.ui-tabs-active a {
-    /* border-top: 3px solid rgb(72, 124, 172); */
+    background: #4B8EAE;
+    color: #fff;
 }
