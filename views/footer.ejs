@@ -14,23 +14,38 @@ $(function() {
 // Standard Google Map call begin
 function initialize() {
   var styles = [
-    {
-      "featureType": "landscape",
-      "stylers": [
-        { "color": "#808080" },
-        { "visibility": "simplified" }
-      ]
-    },{
-      "featureType": "administrative",
-      "elementType": "labels.text.fill",
-      "stylers": [
-        { "weight": 0.1 },
-        { "lightness": 100 },
-        { "visibility": "off" }
-      ]
-    },{
-    }
-  ];
+  {
+    "stylers": [
+      { "saturation": -100 }
+    ]
+  },{
+    "featureType": "road",
+    "stylers": [
+      { "hue": "#00b2ff" },
+      { "saturation": 43 }
+    ]
+  },{
+    "featureType": "landscape",
+    "stylers": [
+      { "hue": "#007fff" },
+      { "lightness": 30 },
+      { "saturation": 47 }
+    ]
+  },{
+    "featureType": "poi",
+    "stylers": [
+      { "hue": "#0099ff" },
+      { "saturation": 26 }
+    ]
+  },{
+    "featureType": "water",
+    "stylers": [
+      { "hue": "#00a1ff" },
+      { "saturation": 72 }
+    ]
+  },{
+  }
+];
 
   var mapOptions = {
     center: new google.maps.LatLng(32.71533, -117.15726),
