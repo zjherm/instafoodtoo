@@ -57,8 +57,8 @@ app.get('/', function(req, res){
   });
 app.get('/set_sub', function(req, res) {
   // #food subscription
-  //  Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'food' });
-    Instagram.subscriptions.subscribe({ object: 'geography', lat: 32.7150, lng: 117.1625, radius: 1000 });
+    Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'foodporn' });
+    //Instagram.subscriptions.subscribe({ object: 'geography', lat: 32.7150, lng: 117.1625, radius: 1000 });
     console.log(Instagram.subscriptions.list());
     res.writeHead(200);
     res.end();

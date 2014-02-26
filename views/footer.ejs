@@ -54,7 +54,7 @@ function initialize() {
     var northEastLng = map.getBounds().getNorthEast().lng();
 
     //IF FOR HASHTAG SUBSCRIPTION
-    //if (currentLat > southWestLat && currentLat < northEastLat && currentLng > southWestLng && currentLng < northEastLng) {
+    if (currentLat > southWestLat && currentLat < northEastLat && currentLng > southWestLng && currentLng < northEastLng) {
       console.log(data.tags);
 
       var icon = {
@@ -93,7 +93,7 @@ function initialize() {
 
       $('#latest-post').prepend(igBox).fadeIn(500);
 
-    // } // endif
+    } // endif
 
 
   });
