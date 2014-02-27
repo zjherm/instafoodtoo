@@ -22,7 +22,7 @@ body {
     float: left;
 }
 .post-box img {
-    width: 150px;
+    width: 100%;
     height: auto;
 }
 #latest-post {
@@ -99,10 +99,12 @@ body {
     float: left;
     font-size: 13px;
 }
-/*.gm-style div div div div div img {
-    width: 100% !important;
-    height: 100% !important;
-}*/
+.post-box .userinfo img {
+    width: 50px;
+    display: block;
+    float: left;
+    margin: 0 5px 5px 0;
+}
 #tabs, .ui-tabs .ui-tabs-panel, .ui-tabs .ui-tabs-nav {
     background: #4B8EAE !important;
     border: 0;
