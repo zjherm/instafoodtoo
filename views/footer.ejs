@@ -73,10 +73,11 @@ var styledMap = new google.maps.StyledMapType(styles,{name: "Zacks Styles"});
     if (currentLat > southWestLat && currentLat < northEastLat && currentLng > southWestLng && currentLng < northEastLng) {
       console.log(data.tags);
 
-      var icon = new google.maps.MarkerImage(
-        data.img, // url
-        new google.maps.Size(80, 80)
-      );
+      var icon = {
+        url: data.img, // url
+        size: new google.maps.Size(80, 80), // size
+        scaledSize: new google.maps.scaledSize(80, 80)
+      };
 
       marker = new google.maps.Marker({
         position:  new google.maps.LatLng(data.lat, data.long),
