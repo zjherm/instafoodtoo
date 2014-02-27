@@ -86,7 +86,7 @@ var styledMap = new google.maps.StyledMapType(styles,{name: "Zacks Styles"});
              map: map,
              title: data.caption
       });
-      // TRYING LIST VIEW FUNCTION INSIDE IF STATEMENT
+      
       var igComments = [];
       for (var i = 0, commentLength = data.comments.length; i < commentLength; i++) {
         igComments.push(
@@ -108,6 +108,13 @@ var styledMap = new google.maps.StyledMapType(styles,{name: "Zacks Styles"});
         '</div>';
 
       $('#latest-post').prepend(igBox).fadeIn(500);
+
+      var infowindow = new google.maps.InfoWindow({
+          content: igBox
+      });
+      google.maps.event.addListener(marker, 'click', function() {
+        infowindow.open(map,marker);
+      });
 
     } // endif
 
