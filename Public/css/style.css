@@ -51,6 +51,16 @@ body {
     margin-bottom: 20px;
     background: #fff;
 }
+.post-box .name {
+    display: block;
+    float: left;
+}
+.post-box .caption {
+    width: 100%;
+    display: block;
+    float: left;
+    font-size: 13px;
+}
 #latest-post .post-box .userinfo img {
     width: 50px;
     margin-bottom: 15px;
@@ -88,16 +98,6 @@ body {
     float: left;
     width: 96%;
     padding: 4px 2%;
-}
-#latest-post .post-box .name {
-    display: block;
-    float: left;
-}
-#latest-post .post-box .caption {
-    width: 100%;
-    display: block;
-    float: left;
-    font-size: 13px;
 }
 .post-box .userinfo img {
     width: 50px;
