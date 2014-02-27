@@ -51,6 +51,9 @@ body {
     margin-bottom: 20px;
     background: #fff;
 }
+#map-canvas .post-box {
+    height: 350px;
+}
 .post-box .name {
     display: block;
     float: left;
