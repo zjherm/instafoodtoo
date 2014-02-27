@@ -57,7 +57,11 @@ body {
 .post-box .name {
     display: block;
     float: left;
+    color: #3f729b;
+    font-weight: bold;
+    text-decoration: none;
 }
+.post-box .name:hover {color:#000;}
 .post-box .caption {
     width: 100%;
     display: block;
