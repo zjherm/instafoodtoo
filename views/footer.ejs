@@ -112,6 +112,7 @@ var styledMap = new google.maps.StyledMapType(styles,{name: "Zacks Styles"});
 
       var infowindow = new google.maps.InfoWindow({
           content: igBox,
+          boxClass: "infowindow",
           maxWidth: 350
       });
       google.maps.event.addListener(marker, 'mouseover', function() {
