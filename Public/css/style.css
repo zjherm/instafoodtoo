@@ -46,18 +46,24 @@ body {
     background: #edeeef !important;
     border-top: 1px solid #000;
 }
+#latest-post .post-box {
+    width: 100%;
+    margin-bottom: 20px;
+    background: #fff;
+    display: inline-block;
+    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
 #latest-post .post-box img {
     width: 100%;
     display: block;
     padding: 0%;
     float: left;
     padding-right: 10px;
-}
-#latest-post .post-box {
-    width: 100%;
-    overflow: hidden;
-    margin-bottom: 20px;
-    background: #fff;
 }
 #map-canvas .post-box {
     height: 350px;
@@ -84,13 +90,8 @@ body {
     width: 96%;
     padding: 2%;
     float: left;
-    border-bottom: 1px solid #e6e6e6;
-    
     margin-bottom: 0;
     word-wrap: break-word;
-    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 .commenter {
     font-weight: bold;
@@ -113,6 +114,9 @@ body {
     float: left;
     width: 96%;
     padding: 4px 2%;
+}
+.comment-box:first-child {
+    border-top: 1px solid #ddd;
 }
 .post-box .userinfo img {
     width: 50px;
