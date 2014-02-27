@@ -73,9 +73,9 @@ var styledMap = new google.maps.StyledMapType(styles,{name: "Zacks Styles"});
     if (currentLat > southWestLat && currentLat < northEastLat && currentLng > southWestLng && currentLng < northEastLng) {
       console.log(data.tags);
 
-      var icon = {
-        url: data.img, // url
-        size: new google.maps.Size(80, 80), // size
+      var icon = new google.maps.MarkerImage{
+        data.img, // url
+        new google.maps.Size(80, 80)
       };
 
       marker = new google.maps.Marker({
@@ -85,7 +85,6 @@ var styledMap = new google.maps.StyledMapType(styles,{name: "Zacks Styles"});
         icon: icon,
         map: map,
         title: data.caption,
-        new google.maps.Size(50,50)
       });
       
       var igComments = [];
