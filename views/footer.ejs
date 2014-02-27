@@ -73,7 +73,7 @@ var styledMap = new google.maps.StyledMapType(styles,{name: "Zacks Styles"});
     if (currentLat > southWestLat && currentLat < northEastLat && currentLng > southWestLng && currentLng < northEastLng) {
       console.log(data.tags);
 
-      var icon = new google.maps.MarkerImage)
+      var icon = new google.maps.MarkerImage(
         data.img, // url
         new google.maps.Size(80, 80)
       );
