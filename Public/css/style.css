@@ -26,9 +26,17 @@ body {
     height: auto;
 }
 #latest-post {
-    max-width: 510px;
-    margin: 0 auto;
-    width: 100%;
+    width: 98%;
+    -moz-column-count: 5;
+    -moz-column-gap: 10px;
+    -moz-column-fill: auto;
+    -webkit-column-count: 5;
+    -webkit-column-gap: 10px;
+    -webkit-column-fill: auto;
+    column-count: 5;
+    column-gap: 15px;
+    column-fill: auto;
+    margin: 1% auto;
 }
 #tabs-2 {
     overflow: hidden;
