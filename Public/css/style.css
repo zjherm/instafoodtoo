@@ -99,10 +99,10 @@ body {
     float: left;
     font-size: 13px;
 }
-.gm-style div div div div div img {
+/*.gm-style div div div div div img {
     width: 100% !important;
     height: 100% !important;
-}
+}*/
 #tabs, .ui-tabs .ui-tabs-panel, .ui-tabs .ui-tabs-nav {
     background: #4B8EAE !important;
     border: 0;

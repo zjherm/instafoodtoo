@@ -80,11 +80,12 @@ var styledMap = new google.maps.StyledMapType(styles,{name: "Zacks Styles"});
 
       marker = new google.maps.Marker({
         position:  new google.maps.LatLng(data.lat, data.long),
-             draggable: true,
-             animation: google.maps.Animation.DROP,
-             icon: icon,
-             map: map,
-             title: data.caption
+        draggable: true,
+        animation: google.maps.Animation.DROP,
+        icon: icon,
+        map: map,
+        title: data.caption,
+        new google.maps.Size(50,50)
       });
       
       var igComments = [];
@@ -96,7 +97,7 @@ var styledMap = new google.maps.StyledMapType(styles,{name: "Zacks Styles"});
       }
       var igBox = 
         '<div class="post-box">' +
-        '<a href="' + data.url + '">' + 
+        '<a href="' + data.url + '" target="_blank">' + 
         '<img src="' + data.img + '">' + 
         '</a>' + 
         '<div class="userinfo">' +
@@ -110,7 +111,8 @@ var styledMap = new google.maps.StyledMapType(styles,{name: "Zacks Styles"});
       $('#latest-post').prepend(igBox).fadeIn(500);
 
       var infowindow = new google.maps.InfoWindow({
-          content: igBox
+          content: igBox,
+          maxWidth: 350
       });
       google.maps.event.addListener(marker, 'click', function() {
         infowindow.open(map,marker);
