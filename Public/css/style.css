@@ -42,6 +42,7 @@ body {
     -moz-column-count: 4;
     -webkit-column-count: 4;
     column-count: 4;
+    background: #fff;
 }
 @media only screen and (max-width: 1150px) {
     -moz-column-count: 3;
