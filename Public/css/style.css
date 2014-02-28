@@ -38,6 +38,28 @@ body {
     column-fill: auto;
     margin: 1% auto;
 }
+@media screen and (max-width: 13300px) {
+    -moz-column-count: 4;
+    -webkit-column-count: 4;
+    column-count: 4;
+}
+@media screen and (max-width: 1150px) {
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+    column-count: 3;
+}
+@media screen and (max-width: 900px) {
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    column-count: 2;
+}
+@media screen and (max-width: 800px) {
+    -moz-column-count: 1;
+    -webkit-column-count: 1;
+    column-count: 1;
+}
+@media screen and (max-width: 540px) {}
+@media screen and (max-width: 385px) {}
 #tabs-2 {
     overflow: hidden;
     background: #edeeef;
@@ -150,6 +172,7 @@ body {
     width: 50%;
     background: #efefef;
     border: 0;
+    padding: 0 !important;
 }
 .ui-tabs .ui-tabs-nav li.ui-tabs-active a {
     background: #4B8EAE;
