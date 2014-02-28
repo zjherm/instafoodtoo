@@ -77,9 +77,12 @@ body {
     width: 100%;
     z-index: 9999;
 }
-.ui-tabs .ui-tabs-panel > div {
-    padding-top: 4%;
+.ui-tabs-panel {
+    margin-top: 4.5%;
 }
+/*.ui-tabs .ui-tabs-panel > div {
+    padding-top: 4%;
+}*/
 .ui-tabs-nav li {
     background: #edeeef !important;
     border-top: 1px solid #000;
