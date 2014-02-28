@@ -116,7 +116,7 @@ var styledMap = new google.maps.StyledMapType(styles,{name: "Zacks Styles"});
           maxWidth: 350
       });
       google.maps.event.addListener(marker, 'click', function() {
-        infowindow.open(map,marker);
+        infowindow.open(map,this);
       });
 
     } // endif
