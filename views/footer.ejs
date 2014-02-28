@@ -108,7 +108,7 @@ var styledMap = new google.maps.StyledMapType(styles,{name: "Zacks Styles"});
         '<div class="comments">' + igComments.join('') + '</div>' +
         '</div>';
 
-      $('#latest-post').prepend(igBox).fadeIn(500);
+      $('#latest-post').append(igBox).fadeIn(500);
 
       var infowindow = new google.maps.InfoWindow({
           content: igBox,

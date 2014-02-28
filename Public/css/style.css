@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background: #4B8EAE;
+    background: #efefef;
 }
 #tabs {
     height: 100%;
@@ -76,6 +76,7 @@ body {
     position: fixed;
     width: 100%;
     z-index: 9999;
+    top: 0;
 }
 .ui-tabs-panel {
     margin-top: 4.5%;
@@ -166,7 +167,7 @@ body {
     margin: 0 5px 5px 0;
 }
 #tabs, .ui-tabs .ui-tabs-panel, .ui-tabs .ui-tabs-nav {
-    background: #4B8EAE !important;
+    background: #efefef !important;
     border: 0;
     padding: 0 !important;
 }
@@ -186,6 +187,6 @@ body {
     padding: 0 !important;
 }
 .ui-tabs .ui-tabs-nav li.ui-tabs-active a {
-    background: #4B8EAE;
+    background: #efefef;
     color: #fff;
 }
