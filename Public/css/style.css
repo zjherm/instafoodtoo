@@ -38,7 +38,7 @@ body {
     column-fill: auto;
     margin: 1% auto;
 }
-@media screen and (max-width: 13300px) {
+@media screen and (max-width: 1300px) {
     -moz-column-count: 4;
     -webkit-column-count: 4;
     column-count: 4;
