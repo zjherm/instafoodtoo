@@ -82,6 +82,7 @@ body {
     left: 45%;
 }
 .ui-tabs-panel {
+    height: 100%;
 }
 /*.ui-tabs .ui-tabs-panel > div {
     padding-top: 4%;
