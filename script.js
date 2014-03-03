@@ -16,9 +16,9 @@ io.configure(function () {
   io.set("polling duration", 10); 
 });
 
-Instagram.set('client_id', 'd7951fa482ef45848e31c4bf564fd7ac');
-Instagram.set('client_secret', 'bc17e4765fa14d8ea532b091529f48b5');
-Instagram.set('callback_url', 'http://instafood.herokuapp.com/endpoint');
+Instagram.set('client_id', '0304cee76c1e49aa86c4e96232c1395e');
+Instagram.set('client_secret', 'a3eabe36d402431e8b926d53a8dde2e5');
+Instagram.set('callback_url', 'http://instafoodtoo.herokuapp.com/endpoint');
 
 
 
