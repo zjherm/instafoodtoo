@@ -3,7 +3,8 @@ var util = require('util'),
   express = require('express'),
   ejs = require('ejs'),
   app = express(),
-  Instagram = require('instagram-node-lib');
+  Instagram = require('instagram-node-lib')
+  $ = require(jQuery);
 
 //Listen on port 3000
 var port = process.env.PORT || 3000;
@@ -32,10 +33,7 @@ app.use(express.logger());
 app.post('/endpoint', function (req, res) {
      var body = "";
         req.on('data', function (chunk) {
-          console.log('chunk');
-          console.log('this is the chunk ' + chunk);
           body += chunk;
-          console.log('this is the body ' + body);
         });
         req.on('end', function () {
           console.log('end');
@@ -48,13 +46,14 @@ app.get('/endpoint', function (req, res){
     Instagram.subscriptions.handshake(req, res); 
 });
 app.get('/', function(req, res){
-      res.render('index.ejs', {
-      layout:false,
-      locals: { 
-        someVariable: "Live Hashtags for #breakfast"
-         }
-      });
+  res.render('index.ejs', {
+    layout:false,
+    locals: { 
+      someVariable: "Live Hashtags for #breakfast"
+    }
   });
+  $(document).ready( function() {console.log("hello")};
+});
 app.get('/set_sub', function(req, res) {
   // #food subscription
     Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'foodporn' });
