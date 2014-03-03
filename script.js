@@ -54,7 +54,7 @@ app.get('/', function(req, res){
   });
   $(document).ready( function() {
     console.log("hello")
-  });
+  })
 });
 app.get('/set_sub', function(req, res) {
   // #food subscription
