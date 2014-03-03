@@ -3,8 +3,8 @@ var util = require('util'),
   express = require('express'),
   ejs = require('ejs'),
   app = express(),
-  Instagram = require('instagram-node-lib')
-  $ = require(jquery);
+  Instagram = require('instagram-node-lib'),
+  $ = require(jQuery);
 
 //Listen on port 3000
 var port = process.env.PORT || 3000;
