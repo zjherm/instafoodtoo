@@ -52,7 +52,9 @@ app.get('/', function(req, res){
       someVariable: "Live Hashtags for #breakfast"
     }
   });
-  $(document).ready( function() {console.log("hello")};
+  $(document).ready( function() {
+    console.log("hello")
+  )};
 });
 app.get('/set_sub', function(req, res) {
   // #food subscription
