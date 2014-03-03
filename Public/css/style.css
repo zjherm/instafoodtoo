@@ -71,7 +71,6 @@ body {
 @media screen and (max-width: 540px) {}
 @media screen and (max-width: 385px) {}
 #tabs-2 {
-    overflow: hidden;
     background: #edeeef;
 }
 .ui-tabs .ui-tabs-nav {
