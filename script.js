@@ -30,6 +30,11 @@ app.engine('html', require('ejs').renderFile);
 
 app.use(express.logger());
 
+// Get Form Data
+app.post('/userinput', function(req,res) {
+  console.log(req.body.hashTag);
+})
+
 app.post('/endpoint', function (req, res) {
      var body = "";
         req.on('data', function (chunk) {
