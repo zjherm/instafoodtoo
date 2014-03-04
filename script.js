@@ -53,10 +53,10 @@ app.get('/', function(req, res){
     }
   });
   // Get Form Data
-  io.sockets.on('data', function(data) {
-    console.log("heres the hash " + data.hash);
-  })
 });
+io.sockets.on('data', function(data) {
+  console.log("heres the hash " + data.hash);
+})
 app.get('/set_sub', function(req, res) {
   // #food subscription
     Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'foodporn' });
