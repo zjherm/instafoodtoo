@@ -30,11 +30,6 @@ app.engine('html', require('ejs').renderFile);
 
 app.use(express.logger());
 
-// Get Form Data
-io.sockets.on('data', function(data) {
-  console.log("heres the hash " + data.hashtag);
-})
-
 app.post('/endpoint', function (req, res) {
      var body = "";
         req.on('data', function (chunk) {
@@ -57,8 +52,9 @@ app.get('/', function(req, res){
       someVariable: "Live Hashtags for #breakfast"
     }
   });
-  $(document).ready( function() {
-    console.log("hello")
+  // Get Form Data
+  io.sockets.on('data', function(data) {
+    console.log("heres the hash " + data.hashtag);
   })
 });
 app.get('/set_sub', function(req, res) {
