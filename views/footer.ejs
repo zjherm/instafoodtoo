@@ -164,6 +164,7 @@ function handleNoGeolocation(errorFlag) {
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 <script>
+var socket = io.connect();
 $('#submit').on('click', function(event) {
   event.preventDefault();
   alert('clicked!');
