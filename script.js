@@ -31,8 +31,8 @@ app.engine('html', require('ejs').renderFile);
 app.use(express.logger());
 
 // Get Form Data
-app.post('/userinput', function(req,res) {
-  console.log(req.hashTag);
+socket.on('userhash', function(data) {
+  console.log("heres the hash " + data.hashtag);
 })
 
 app.post('/endpoint', function (req, res) {
