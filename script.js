@@ -49,12 +49,12 @@ app.get('/', function(req, res){
   res.render('index.ejs', {
     layout:false,
     locals: { 
-      someVariable: "Live Hashtags for #breakfast"
+      someVariable: "blah"
     }
   });
   // Get Form Data
   io.sockets.on('data', function(data) {
-    console.log("heres the hash " + data.hashtag);
+    console.log("heres the hash " + data.hash);
   })
 });
 app.get('/set_sub', function(req, res) {
