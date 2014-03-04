@@ -168,7 +168,7 @@ var socket = io.connect();
 $('#submit').on('click', function(event) {
   event.preventDefault();
   alert('clicked!');
-  socket.emit('userhash', {
+  socket.emit('data', {
     hash: $('hastag').val()
   });
 });
