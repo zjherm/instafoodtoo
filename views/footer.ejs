@@ -169,7 +169,7 @@ $('#submit').on('click', function(event) {
   event.preventDefault();
   alert('clicked!');
   socket.emit('data', {
-    hash: $('hastag').val()
+    hash: $('#hashtag').val()
   });
 });
 </script>
