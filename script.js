@@ -32,7 +32,7 @@ app.use(express.logger());
 
 // Get Form Data
 app.post('/userinput', function(req,res) {
-  console.log(req.body.hashTag);
+  console.log(req.hashTag);
 })
 
 app.post('/endpoint', function (req, res) {
