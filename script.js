@@ -55,30 +55,17 @@ app.get('/', function(req, res){
 });
 
 
-  // Get Form Data
-  io.sockets.on('connection', function(socket) {
-    socket.on('data', function(data) {
-      console.log("heres the hash " + data.hash);
-      Instagram.subscriptions.subscribe({ object: 'tag', object_id: data.hash });
-      console.log(Instagram.subscriptions.list());
-    });
+// Get Form Data
+io.sockets.on('connection', function(socket) {
+  socket.on('data', function(data) {
+    console.log("heres the hash " + data.hash);
+    Instagram.subscriptions.subscribe({ object: 'tag', object_id: data.hash });
+    console.log(Instagram.subscriptions.list());
   });
-
-app.get('/set_sub', function(req, res) {
-  // #food subscription
-    Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'foodporn' });
-    //Instagram.subscriptions.subscribe({ object: 'geography', lat: 32.7150, lng: 117.1625, radius: 1000 });
-    console.log(Instagram.subscriptions.list());
-    res.writeHead(200);
-    res.end();
+  socket.on('disconnect' function(data) {
+    Instagram.tags.unsubscribe({ id: this.subscription_id });
+  });
 });
-app.get('/cancel_sub', function(req, res) {
-    Instagram.tags.subscriptions.unsubscribe_all();
-    console.log(Instagram.subscriptions.list());
-    res.writeHead(200);
-    res.end();
-});
-
 
 
 function getPhoto(inf){
