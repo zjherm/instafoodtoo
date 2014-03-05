@@ -10,7 +10,9 @@ $(function() {
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiG9_G2je7aqBZnjskcTTILnhesRGQS4E&sensor=false">
 </script>
 <script type="text/javascript">
-var socket = io.connect();
+var socket = io.connect('http://localhost', {
+  'sync disconnect on unload': true
+});
 // Standard Google Map call begin
 function initialize() {
   var styles = [
