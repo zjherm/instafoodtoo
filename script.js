@@ -53,11 +53,12 @@ app.get('/', function(req, res){
     }
   });
   // Get Form Data
+  io.on('data', function(data) {
+    console.log("heres the hash " + data.hash);
+  });
 });
 
-io.on('data', function(data) {
-  console.log("heres the hash " + data.hash);
-});
+
 
 
 app.get('/set_sub', function(req, res) {
