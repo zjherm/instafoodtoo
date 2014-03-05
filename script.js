@@ -60,9 +60,9 @@ io.sockets.on('connection', function(socket) {
   socket.on('data', function(data) {
     console.log("heres the hash " + data.hash);
     Instagram.subscriptions.subscribe({ object: 'tag', object_id: data.hash });
-    console.log(Instagram.subscriptions.list());
   });
   socket.on('disconnect', function() {
+    console.log("disconnected");
     Instagram.subscriptions.unsubscribe_all();
   });
 });
