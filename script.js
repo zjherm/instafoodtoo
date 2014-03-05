@@ -10,6 +10,7 @@ var util = require('util'),
 var port = process.env.PORT || 3000;
 var server = app.listen(port);
 var io = require('socket.io').listen(server);
+var socket = io.connect('http://yourdomain.com', {'sync disconnect on unload' : true});
 
 //This is required to work on Heroku; it defaults to long polling; actual web-sockets not supported
 io.configure(function () { 
