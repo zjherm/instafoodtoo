@@ -62,7 +62,7 @@ io.sockets.on('connection', function(socket) {
     Instagram.subscriptions.subscribe({ object: 'tag', object_id: data.hash });
     console.log(Instagram.subscriptions.list());
   });
-  socket.on('disconnect' function(data) {
+  socket.on('disconnect', function() {
     Instagram.tags.unsubscribe({ id: this.subscription_id });
   });
 });
