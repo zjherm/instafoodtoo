@@ -55,7 +55,7 @@ app.get('/', function(req, res){
   // Get Form Data
 });
 io.sockets.on('connection', function(socket) {
-  sockets.on('data', function(data) {
+  io.sockets.on('data', function(data) {
     console.log("heres the hash " + data.hash);
   });
 });
