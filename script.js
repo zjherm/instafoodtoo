@@ -53,14 +53,14 @@ app.get('/', function(req, res){
     }
   });
   // Get Form Data
-  io.sockets.on('data', function(data) {
+  io.on('data', function(data) {
     console.log("heres the hash " + data.hash);
   });
 });
 
 
   // Get Form Data
-  io.sockets.on('data', function(data) {
+  io.on('data', function(data) {
     console.log("heres the hash " + data.hash);
   });
 
