@@ -52,23 +52,16 @@ app.get('/', function(req, res){
       someVariable: "blah"
     }
   });
-  // Get Form Data
-  io.sockets.on('connection', function(socket) {
-    io.on('data', function(data) {
-      console.log("heres the hash " + data.hash);
-    });
-  });
-
 });
 
 
   // Get Form Data
   io.sockets.on('connection', function(socket) {
-    io.on('data', function(data) {
+    socket.on('data', function(data) {
       console.log("heres the hash " + data.hash);
     });
   });
-  
+
 app.get('/set_sub', function(req, res) {
   // #food subscription
     Instagram.subscriptions.subscribe({ object: 'tag', object_id: 'foodporn' });
