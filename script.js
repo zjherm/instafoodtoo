@@ -63,7 +63,7 @@ io.sockets.on('connection', function(socket) {
     console.log(Instagram.subscriptions.list());
   });
   socket.on('disconnect', function() {
-    Instagram.tags.unsubscribe({ id: this.subscription_id });
+    Instagram.subscriptions.unsubscribe({ id: this.subscription_id });
   });
 });
 
