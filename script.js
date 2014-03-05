@@ -53,13 +53,16 @@ app.get('/', function(req, res){
     }
   });
   // Get Form Data
-  io.on('data', function(data) {
+  io.socket.on('data', function(data) {
     console.log("heres the hash " + data.hash);
   });
 });
 
 
-
+  // Get Form Data
+  io.socket.on('data', function(data) {
+    console.log("heres the hash " + data.hash);
+  });
 
 app.get('/set_sub', function(req, res) {
   // #food subscription
