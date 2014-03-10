@@ -27,6 +27,7 @@ Instagram.set('callback_url', 'http://instafoodtoo.herokuapp.com/endpoint');
 app.use(express.static(__dirname + '/Public'));
 app.set('views', __dirname + '/views');
 app.engine('html', require('ejs').renderFile);
+app.use(express.bodyParser());
 
 app.use(express.logger());
 
