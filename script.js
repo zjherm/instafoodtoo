@@ -31,6 +31,10 @@ app.engine('html', require('ejs').renderFile);
 app.use(express.logger());
 
 app.post('/endpoint', function (req, res) {
+    data.forEach(function(tag) {
+        var objectID = tag.object_id;
+        console.log("subscriptionid " + objectID)
+        });
     console.log("subscription id is " + req.body.object_id);
     var body = "";
     req.on('data', function (chunk) {
