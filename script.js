@@ -63,6 +63,7 @@ app.get('/', function(req, res){
 io.sockets.on('connection', function(socket) {
   socket.on('data', function(data) {
     console.log("heres the hash " + data.hash);
+    Instagram.subscriptions.subscribe({ object: 'tag', object_id: data.hash });
   });
   socket.on('disconnect', function() {
     console.log("disconnected"); // not working at this point.. 
