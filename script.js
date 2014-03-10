@@ -4,7 +4,10 @@ var util = require('util'),
   ejs = require('ejs'),
   app = express(),
   Instagram = require('instagram-node-lib'),
-  $ = require('jquery');
+  $ = require('jquery'),
+  passport = require('passport'), 
+  InstagramStrategy = require('passport-instagram').Strategy;
+
 
 //Listen on port 3000
 var port = process.env.PORT || 3000;
@@ -23,10 +26,12 @@ Instagram.set('callback_url', 'http://instafoodtoo.herokuapp.com/endpoint');
 Instagram.set('redirect_uri', 'http://instafoodtoo.herokuapp.com/');
 
 // using Passport-Instagram npm to authenticate
+var INSTAGRAM_CLIENT_ID = "0304cee76c1e49aa86c4e96232c1395e"
+var INSTAGRAM_CLIENT_SECRET = "a3eabe36d402431e8b926d53a8dde2e5";
 passport.use(new InstagramStrategy({
-    clientID: 0304cee76c1e49aa86c4e96232c1395e,
-    clientSecret: a3eabe36d402431e8b926d53a8dde2e5,
-    callbackURL: "http://instafoodtoo.herokuapp.com/endpoint"
+    clientID: INSTAGRAM_CLIENT_ID,
+    clientSecret: INSTAGRAM_CLIENT_SECRET,
+    callbackURL: "http://instafoodtoo.herokuapp.com/auth/instagram/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     User.findOrCreate({ instagramId: profile.id }, function (err, user) {
