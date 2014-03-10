@@ -63,7 +63,7 @@ io.sockets.on('connection', function(socket) {
     Instagram.subscriptions.subscribe({ object: 'tag', object_id: data.hash });
     var info = JSON.parse(info);
     var part = info[0];
-    console.log("heres the part " part);
+    console.log("heres the part " + part);
   });
   socket.on('disconnect', function() {
     console.log("disconnected"); // not working at this point.. 
