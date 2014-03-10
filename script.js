@@ -31,16 +31,17 @@ app.engine('html', require('ejs').renderFile);
 app.use(express.logger());
 
 app.post('/endpoint', function (req, res) {
-     var body = "";
-        req.on('data', function (chunk) {
-          body += chunk;
-        });
-        req.on('end', function () {
-          console.log('end');
-          getPhoto(body);
-          res.writeHead(200);
-          res.end();
-        });
+    console.log("subscription id is " + req.body.object_id);
+    var body = "";
+    req.on('data', function (chunk) {
+      body += chunk;
+    });
+    req.on('end', function () {
+      console.log('end');
+      getPhoto(body);
+      res.writeHead(200);
+      res.end();
+    });
 });
 app.get('/endpoint', function (req, res){
     Instagram.subscriptions.handshake(req, res); 
@@ -60,10 +61,13 @@ io.sockets.on('connection', function(socket) {
   socket.on('data', function(data) {
     console.log("heres the hash " + data.hash);
     Instagram.subscriptions.subscribe({ object: 'tag', object_id: data.hash });
+    function getSubID(inf) {
+      inf = JSON.parse(inf);
+
+    }
   });
   socket.on('disconnect', function() {
-    console.log("disconnected");
-    Instagram.subscriptions.unsubscribe_all();
+    console.log("disconnected"); // not working at this point.. 
   });
 });
 
