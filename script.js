@@ -47,7 +47,7 @@ app.use(express.logger());
 
 app.post('/endpoint', function (req, res) {
     console.log('Got data: ' + req.body);
-    getPhoto(req.body);
+    // getPhoto(req.body);
     res.send(200);
 });
 
