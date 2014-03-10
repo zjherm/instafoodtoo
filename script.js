@@ -78,6 +78,7 @@ io.sockets.on('connection', function(socket) {
 function getPhoto(inf){
   prt = inf[0]; // Grab the first object, IG sends about 20..
   console.log("heres prt:" + prt);
+  console.log("heres subscriptionid " + subscription_id)
   console.log("=======================BODY========================");
   Instagram.tags.recent({
     name: prt.object_id,
