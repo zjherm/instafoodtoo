@@ -12,10 +12,10 @@ var server = app.listen(port);
 var io = require('socket.io').listen(server);
 
 //This is required to work on Heroku; it defaults to long polling; actual web-sockets not supported
-// io.configure(function () { 
-//   io.set("transports", ["xhr-polling"]); 
-//   io.set("polling duration", 10); 
-// });
+io.configure(function () { 
+  io.set("transports", ["xhr-polling"]); 
+  io.set("polling duration", 10); 
+});
 
 Instagram.set('client_id', '0304cee76c1e49aa86c4e96232c1395e');
 Instagram.set('client_secret', 'a3eabe36d402431e8b926d53a8dde2e5');
