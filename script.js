@@ -61,8 +61,8 @@ io.sockets.on('connection', function(socket) {
   socket.on('data', function(data) {
     console.log("heres the hash " + data.hash);
     Instagram.subscriptions.subscribe({ object: 'tag', object_id: data.hash });
-    info = JSON.parse(info);
-    part = info[0];
+    var info = JSON.parse(info);
+    var part = info[0];
     console.log("heres the part " part);
   });
   socket.on('disconnect', function() {
