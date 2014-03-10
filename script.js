@@ -63,9 +63,6 @@ app.get('/', function(req, res){
 io.sockets.on('connection', function(socket) {
   socket.on('data', function(data) {
     console.log("heres the hash " + data.hash);
-    var info = JSON.parse(info);
-    var part = info[0];
-    console.log("heres the part " + part);
   });
   socket.on('disconnect', function() {
     console.log("disconnected"); // not working at this point.. 
