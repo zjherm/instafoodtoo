@@ -47,7 +47,7 @@ app.use(express.logger());
 
 app.post('/endpoint', function (req, res) {
     console.log('Got data: ' + req.body);
-    // getPhoto(req.body);
+    getPhoto(req.body);
     res.send(200);
 });
 
@@ -77,7 +77,7 @@ io.sockets.on('connection', function(socket) {
 
 
 function getPhoto(inf){
-  inf = JSON.parse(inf); //Pasrse the JSON
+  // inf = JSON.parse(inf); //Pasrse the JSON
   prt = inf[0]; // Grab the first object, IG sends about 20..
   console.log(prt);
   console.log("=======================BODY========================");
