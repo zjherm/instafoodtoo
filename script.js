@@ -20,8 +20,20 @@ io.configure(function () {
 Instagram.set('client_id', '0304cee76c1e49aa86c4e96232c1395e');
 Instagram.set('client_secret', 'a3eabe36d402431e8b926d53a8dde2e5');
 Instagram.set('callback_url', 'http://instafoodtoo.herokuapp.com/endpoint');
+Instagram.set('redirect_uri', 'http://instafoodtoo.herokuapp.com/');
 
-
+// using Passport-Instagram npm to authenticate
+passport.use(new InstagramStrategy({
+    clientID: 0304cee76c1e49aa86c4e96232c1395e,
+    clientSecret: a3eabe36d402431e8b926d53a8dde2e5,
+    callbackURL: "http://instafoodtoo.herokuapp.com/endpoint"
+  },
+  function(accessToken, refreshToken, profile, done) {
+    User.findOrCreate({ instagramId: profile.id }, function (err, user) {
+      return done(err, user);
+    });
+  }
+));
 
 // app.use(express.static(__dirname + '/'));
 app.use(express.static(__dirname + '/Public'));
@@ -53,6 +65,15 @@ app.post('/endpoint', function (req, res) {
 app.get('/endpoint', function (req, res){
     Instagram.subscriptions.handshake(req, res); 
 });
+app.get('/auth/instagram',
+  passport.authenticate('instagram'));
+
+app.get('/auth/instagram/callback', 
+  passport.authenticate('instagram', { failureRedirect: '/login' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+  });
 app.get('/', function(req, res){
   res.render('index.ejs', {
     layout:false,

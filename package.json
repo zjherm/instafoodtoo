@@ -1,23 +1,25 @@
 {
   "name": "rookie",
-  "version": "0.0.0",
+  "version": "0.0.0-1",
   "description": "testing socket",
   "main": "script.js",
   "dependencies": {
-  	"socket.io": "*",
-  	"connect": "*",
-    "jquery" : "2.1.0",
-    "instagram-node-lib" : "*",
-    "express" : "*",
-    "redis" : "*",
-    "ejs" : "*"
-  	},
+    "socket.io": "*",
+    "connect": "*",
+    "jquery": "2.1.0",
+    "instagram-node-lib": "*",
+    "express": "*",
+    "redis": "*",
+    "ejs": "*"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "script.js"
   },
   "engines": {
     "node": "0.10.25"
   },
   "author": "zack <zackjherman@gmail.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "subdomain": "zackherman-instafoodtoo"
 }
