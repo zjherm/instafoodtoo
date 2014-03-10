@@ -30,23 +30,26 @@ app.engine('html', require('ejs').renderFile);
 
 app.use(express.logger());
 
+// app.post('/endpoint', function (req, res) {
+//     var body = "";
+//     req.on('data', function (chunk) {
+//       body += chunk;
+//       console.log("console logging the data: " + body[0].subscription_id);
+//     });
+//     req.on('end', function () {
+//       console.log('end');
+//       getPhoto(body);
+//       res.writeHead(200);
+//       res.end();
+//     });
+// });
+
 app.post('/endpoint', function (req, res) {
-    var body = "";
-    req.on('data', function (chunk) {
-      body += chunk;
-      console.log("console logging the data: " + body[0].subscription_id);
-    });
-    // data.forEach(function(tag) {
-    //   var objectID = tag.object_id;
-    //   console.log("subscriptionid " + objectID)
-    // });
-    req.on('end', function () {
-      console.log('end');
-      getPhoto(body);
-      res.writeHead(200);
-      res.end();
-    });
+    console.log('Got data: ' + req.body);
+    getPhoto(req.body);
+    res.send(200);
 });
+
 app.get('/endpoint', function (req, res){
     Instagram.subscriptions.handshake(req, res); 
 });
