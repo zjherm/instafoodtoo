@@ -61,10 +61,7 @@ io.sockets.on('connection', function(socket) {
   socket.on('data', function(data) {
     console.log("heres the hash " + data.hash);
     Instagram.subscriptions.subscribe({ object: 'tag', object_id: data.hash });
-    function getSubID(inf) {
-      inf = JSON.parse(inf);
-
-    }
+    console.log("subscription id is " + req.body.object_id);
   });
   socket.on('disconnect', function() {
     console.log("disconnected"); // not working at this point.. 
