@@ -34,7 +34,7 @@ app.post('/endpoint', function (req, res) {
     var body = "";
     req.on('data', function (chunk) {
       body += chunk;
-      console.log("console logging the data: " + body.subscription_id);
+      console.log("console logging the data: " + body[0].subscription_id);
     });
     // data.forEach(function(tag) {
     //   var objectID = tag.object_id;
