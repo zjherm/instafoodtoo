@@ -4,9 +4,7 @@ var util = require('util'),
   ejs = require('ejs'),
   app = express(),
   Instagram = require('instagram-node-lib'),
-  $ = require('jquery'),
-  passport = require('passport'), 
-  InstagramStrategy = require('passport-instagram').Strategy;
+  $ = require('jquery');
 
 
 //Listen on port 3000
@@ -15,52 +13,23 @@ var server = app.listen(port);
 var io = require('socket.io').listen(server);
 
 //This is required to work on Heroku; it defaults to long polling; actual web-sockets not supported
-io.configure(function () { 
-  io.set("transports", ["xhr-polling"]); 
-  io.set("polling duration", 10); 
-});
+// io.configure(function () { 
+//   io.set("transports", ["xhr-polling"]); 
+//   io.set("polling duration", 10); 
+// });
 
-Instagram.set('client_id', '0304cee76c1e49aa86c4e96232c1395e');
-Instagram.set('client_secret', 'a3eabe36d402431e8b926d53a8dde2e5');
-Instagram.set('callback_url', 'http://instafoodtoo.herokuapp.com/endpoint');
-Instagram.set('redirect_uri', 'http://instafoodtoo.herokuapp.com/');
-
-// using Passport-Instagram npm to authenticate
-var INSTAGRAM_CLIENT_ID = "0304cee76c1e49aa86c4e96232c1395e"
-var INSTAGRAM_CLIENT_SECRET = "a3eabe36d402431e8b926d53a8dde2e5";
-passport.use(new InstagramStrategy({
-    clientID: INSTAGRAM_CLIENT_ID,
-    clientSecret: INSTAGRAM_CLIENT_SECRET,
-    callbackURL: "http://instafoodtoo.herokuapp.com/auth/instagram/callback"
-  },
-  function(accessToken, refreshToken, profile, done) {
-    User.findOrCreate({ instagramId: profile.id }, function (err, user) {
-      return done(err, user);
-    });
-  }
-));
+Instagram.set('client_id', 'INSTAGRAM_CLIENT_ID');
+Instagram.set('client_secret', 'INSTAGRAM_CLIENT_SECRET');
+Instagram.set('callback_url', 'http://instafoodtoo.jit.su/endpoint');
+Instagram.set('redirect_uri', 'http://instafoodtoo.jit.su/');
 
 // app.use(express.static(__dirname + '/'));
 app.use(express.static(__dirname + '/Public'));
 app.set('views', __dirname + '/views');
 app.engine('html', require('ejs').renderFile);
-app.use(express.bodyParser());
+app.use(express.bodyParser()); // get information from html forms
 
 app.use(express.logger());
-
-// app.post('/endpoint', function (req, res) {
-//     var body = "";
-//     req.on('data', function (chunk) {
-//       body += chunk;
-//       console.log("console logging the data: " + body[0].subscription_id);
-//     });
-//     req.on('end', function () {
-//       console.log('end');
-//       getPhoto(body);
-//       res.writeHead(200);
-//       res.end();
-//     });
-// });
 
 app.post('/endpoint', function (req, res) {
     getPhoto(req.body);
@@ -70,15 +39,7 @@ app.post('/endpoint', function (req, res) {
 app.get('/endpoint', function (req, res){
     Instagram.subscriptions.handshake(req, res); 
 });
-app.get('/auth/instagram',
-  passport.authenticate('instagram'));
 
-app.get('/auth/instagram/callback', 
-  passport.authenticate('instagram', { failureRedirect: '/login' }),
-  function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect('/');
-  });
 app.get('/', function(req, res){
   res.render('index.ejs', {
     layout:false,
@@ -86,6 +47,7 @@ app.get('/', function(req, res){
       someVariable: "blah"
     }
   });
+  
 });
 
 
@@ -94,16 +56,17 @@ io.sockets.on('connection', function(socket) {
   socket.on('data', function(data) {
     console.log("heres the hash " + data.hash);
     Instagram.subscriptions.subscribe({ object: 'tag', object_id: data.hash });
+    // Instagram.subscriptions.list( function (err, data) {
+    //   console.log("subscription list" + data);
+    // });
   });
   socket.on('disconnect', function() {
     console.log("disconnected"); // not working at this point.. 
   });
 });
 
-
 function getPhoto(inf){
   prt = inf[0]; // Grab the first object, IG sends about 20..
-  console.log("heres prt:" + prt);
   console.log("heres subscriptionid " + prt.subscription_id)
   console.log("=======================BODY========================");
   Instagram.tags.recent({

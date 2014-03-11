@@ -1,25 +1,27 @@
 {
-  "name": "rookie",
-  "version": "0.0.0-1",
+  "name": "instafoodtoo",
+  "version": "0.0.0-14",
   "description": "testing socket",
   "main": "script.js",
   "dependencies": {
-    "socket.io": "*",
+    "socket.io": "0.9.x",
     "connect": "*",
     "jquery": "2.1.0",
     "instagram-node-lib": "*",
     "express": "*",
     "redis": "*",
-    "ejs": "*"
+    "ejs": "*",
+    "passport-instagram": "0.1.x",
+    "passport": "0.2.x"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "script.js"
   },
   "engines": {
-    "node": "0.10.25"
+    "node": "0.10.x"
   },
   "author": "zack <zackjherman@gmail.com>",
   "license": "ISC",
-  "subdomain": "zackherman-instafoodtoo"
+  "subdomain": "instafoodtoo"
 }
